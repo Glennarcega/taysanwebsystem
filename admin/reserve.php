@@ -33,8 +33,11 @@
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li class = "active"><a href = "reserve.php">Reservation</a></li>
-			<li><a href = "room.php">Room</a></li>			
+			<li class = "active"><a href = "reserve.php">Hotel Booking</a></li>
+			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+
+			<li ><a href = "room.php">Booking</a></li>	
+			
 		</ul>	
 	</div>
 	
@@ -71,6 +74,7 @@
 							<th>Name</th>
 							<th>Contact No</th>
 							<th>Email</th>
+							<th>Hotel Name</th>
 							<th>Room Type</th>
 							<th>Reserved Date</th>
 							<th>Status</th>
@@ -87,6 +91,7 @@
 							<td><?php echo $fetch['name']?></td>
 							<td><?php echo $fetch['contactno']?></td>
 							<td><?php echo $fetch['email']?></td>
+							<td><?php echo $fetch['hotel_name']?></td>
 							<td><?php echo $fetch['room_type']?></td>
 							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
 							<td><?php echo $fetch['status']?></td>

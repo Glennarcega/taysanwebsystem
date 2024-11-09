@@ -116,11 +116,11 @@ require_once 'connection/connect.php';
                                             <td><?php echo htmlspecialchars($fetch['room_type']); ?></td>
                                             <td><strong>
                                                 <?php 
-                                                if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {
-                                                    echo "<label style='color:#ff0000;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
-                                                } else {
-                                                    echo "<label style='color:#00ff00;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
-                                                }
+                                               if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {
+                                                echo "<label style='color:#0000ff;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                                            } else {
+                                                echo "<label style='color:#0000FF;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                                            }                                                                                           
                                                 ?>
                                             </strong></td>
                                             <td><?php echo htmlspecialchars($fetch['status']); ?></td>

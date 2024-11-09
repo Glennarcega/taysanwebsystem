@@ -32,8 +32,10 @@
 			<li class = "active"><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li><a href = "reserve.php">Reservation</a></li>
-			<li><a href = "room.php">Room</a></li>			
+			<li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li ><a href = "room.php">Booking</a></li>	
+	
 		</ul>	
 	</div>
 	<br />

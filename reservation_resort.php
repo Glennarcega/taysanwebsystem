@@ -63,7 +63,7 @@
                             onmouseout="this.style.transform='scale(1)';">
                         <div style="padding: 10px; text-align: center;">
                             <h3 style="font-size: 2.2rem; margin-bottom: 5px; font-weight: bold; color: black;"><?php echo $fetch['resort_name']; ?></h3>
-                            <h4 style="font-size: 2rem; color: #00ff00;"><?php echo "Price: Php. ".$fetch['price'].".00"; ?></h4>
+                            <h4 style="font-size: 2rem; color: #0000ff;"><?php echo "Price: Php. ".$fetch['price'].".00"; ?></h4>
                             <h4 style="font-size: 2rem; color: #555; margin-bottom: 15px;"><?php echo $fetch['descr']; ?></h4>
 <button onclick="window.location.href = 'add_reserve_resort.php?resort_id=<?php echo $fetch['resort_id']; ?>&id=<?php echo $id; ?>';
 " style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"

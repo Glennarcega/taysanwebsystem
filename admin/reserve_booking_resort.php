@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <?php
 	require_once '../admin_query/validate.php';
@@ -11,7 +10,9 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
 		<link rel = "stylesheet" type = "text/css" href = "../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../sendemail/css/bootstrap.css"/>
 		<link rel="stylesheet"  type="text/css" href="../css/css_footer.css">
+       
 	</head>
 <body>
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
@@ -32,99 +33,78 @@
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li class="active"><a href = "reserve.php">Hotel Booking</a></li>
-			<li><a href = "reserve_resort.php">Resort Booking</a></li>
-			<li ><a href = "room.php">Booking</a></li>		
+			<li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li class = "active"><a href = "reserve_resort.php">Resort Booking</a></li>
+
+			<li ><a href = "room.php">Booking</a></li>	
+			
 		</ul>	
 	</div>
+	
 	<br />
-	<div class = "container-fluid">
+	<div class = "container-fluid">	
 		<div class = "panel panel-default">
+			<?php
+				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Pending'") or die(mysqli_error());
+				$f_p = $q_p->fetch_array();
+				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Reserved'") or die(mysqli_error());
+				$f_c = $q_c->fetch_array();
+				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check In'") or die(mysqli_error());
+				$f_ci = $q_ci->fetch_array();
+				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
+				$f_cw = $q_cw->fetch_array();
+			?>
 			<div class = "panel-body">
-				<div class = "alert alert-info">Booking Information</div>
-				<?php
-					$query = $conn->query("SELECT * FROM `transaction` NATURAL JOIN `guest` NATURAL JOIN `room` WHERE `transaction_id` = '$_REQUEST[transaction_id]'") or die(mysqli_error());
-					$fetch = $query->fetch_array();
-				?>
+	
+				<a class = "btn btn-info" href="reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
+				<a class = "btn btn-info" href="reserve1.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
+				<a class = "btn btn-info" href = "checkin.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
+				<a class = "btn btn-warning" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
+				<br />
+				<br />
+			
+				<br />
 				
 				<br />
-				<form method = "POST" enctype = "multipart/form-data" action = "../admin_query/save_form.php?transaction_id=<?php echo $fetch['transaction_id']?>">
-			
-					<div class = "form-inline" style = "float:left; margin-left:20px;">
-						<label>Name</label>
-						<br />
-						<input type = "text" value = "<?php echo $fetch['name']?>" class = "form-control" size = "30" disabled = "disabled"/>
-					</div>
-					<div class = "form-inline" style = "float:left; margin-left:20px;">
-						<label>email</label>
-						<br />
-						<input type = "text" value = "<?php echo $fetch['email']?>" class = "form-control" size = "40" disabled = "disabled"/>
-					</div>
-					<br style = "clear:both;"/>
-					<br />
-					<div class = "form-inline" style = "float:left;">
-						<label>Room Type</label>
-						<br />
-						<input type = "text" value = "<?php echo $fetch['room_type']?>" class = "form-control" size = "20" disabled = "disabled"/>
+				
+ 
+				<table id = "table" class = "table table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Contact No</th>
+							<th>Email</th>
+							<th>Hotel Name</th>
+
+							<th>Reserved Date</th>
+							<th>Status</th>
+							<th>Action</th>
+						</tr>
 						
-					</div>
+					</thead>
+					<tbody>
+						<?php
+							$query = $conn->query("SELECT * FROM `transactionresort` NATURAL JOIN `guest` NATURAL JOIN `resort` WHERE `status` = 'Pending'") or die(mysqli_error());
+							while($fetch = $query->fetch_array()){
+						?>
+						<tr>
+							<td><?php echo $fetch['name']?></td>
+							<td><?php echo $fetch['contactno']?></td>
+							<td><?php echo $fetch['email']?></td>
+							<td><?php echo $fetch['resort_name']?></td>
+						
+							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
+							<td><?php echo $fetch['status']?></td>
+							<td><center><a class = "btn btn-success" href = "sendtoemail.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Confirm</a> <a class = "btn btn-danger" href = "sendtoemail_discard.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Discard</a>
+						</tr>
+						<?php
+							}
+						?>
 				
-					<div class = "form-inline" style = "float:left; margin-left:20px;">
-						<label>Days</label>
-						<br />
-						<input type = "number" min = "0" max = "99" name = "days" value = "<?php echo $fetch['days']?>" class = "form-control" disabled = "disabled"/>
-					</div>
-				
-					<br style = "clear:both;"/>
-					<br />
-					
-					
-					
-				</form>
+					</tbody>
+				</table>
 			</div>
 		</div>
-		<div class="col-md-3"></div>
-	<div class="col-md-6 well">
-		<h3 class="text-primary">Send Confirmation</h3>
-		<hr style="border-top:1px dotted #ccc;"/>
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
-			
-			<form method="POST" action="send_email.php">
-				<div class="form-group">
-					<label>Email:</label>
-					<input type="email" class="form-control" name="email" value = "<?php echo $fetch['email']?>"required="required"/>
-				</div>
-				<div class="form-group">
-					<label>Subject</label>
-					<input type="text" class="form-control" name="subject" required="required" value="Accept Request Booking" disabled = "disabled"/>
-				</div>
-				<div class="form-group">
-					<label>Message</label>
-					<textarea class="form-control" name="message" required="required" rows="2"></textarea>
-				</div>
-				<center><button name="send" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Send</button></center>
-			</form>
-			<br />
-			<?php
-				if(ISSET($_SESSION['status'])){
-					if($_SESSION['status'] == "ok"){
-			?>
-						<div class="alert alert-info"><?php echo $_SESSION['result']?></div>
-			<?php
-					}else{
-			?>
-						<div class="alert alert-danger"><?php echo $_SESSION['result']?></div>
-			<?php
-					}
-					
-					unset($_SESSION['result']);
-					unset($_SESSION['status']);
-				}
-			?>
-		</div>
-	</div>
-
 	</div>
 	<br />
 	<br />
@@ -132,9 +112,7 @@
             <div class = "footer-container">
                 <div>
                     <h2>About Us </h2>
-					<p>This web-based reservation system that makes it easier for customers to pair up with Casa's Transient House.
-						They will capable of choosing rooms that fit within their budget.They will aslo discover wether there are any more rooms available or not.
-					</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sapiente mollitia doloribus provident? Eos quisquam aliquid vel dolorum, impedit culpa.</p>
                     <ul class = "social-icons">
                         <li class = "flex">
                             <i class = "fa fa-twitter fa-2x"></i>
@@ -187,7 +165,7 @@
                             <i class = "fas fa-envelope"></i>
                         </span>
                         <span>
-                            casastransienthouse@gmail.com
+                            casastransient@.com
                         </span>
                     </div>
                 </div>
@@ -197,5 +175,23 @@
     
     
     
-</body>	
+
+</body>
+<script src = "../js/jquery.js"></script>
+<script src = "../js/jquery.dataTables.js"></script>
+<script src = "../js/dataTables.bootstrap.js"></script>	
+<script type = "text/javascript">
+	$(document).ready(function(){
+		$("#table").DataTable();
+	});
+</script>
+<script type = "text/javascript">
+	function confirmationDelete(anchor){
+		var conf = confirm("Are you sure you want to delete this record?");
+		if(conf){
+			window.location = anchor.attr("href");
+		}
+	} 
+</script>
+	
 </html>

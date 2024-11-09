@@ -30,9 +30,11 @@
 	<div class = "container-fluid">	
 		<ul class = "nav nav-pills">
 			<li><a href = "home.php">Home</a></li>
+			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li class = "active"><a href = "reserve.php">Reservation</a></li>
-			<li><a href = "room.php">Room</a></li>			
+			<li class="active"><a href = "reserve.php">Hotel Booking</a></li>
+			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li ><a href = "room.php">Booking</a></li>		
 		</ul>	
 	</div>
 	<br />
@@ -47,20 +49,11 @@
 				
 				<br />
 				<form method = "POST" enctype = "multipart/form-data" action = "../admin_query/save_form.php?transaction_id=<?php echo $fetch['transaction_id']?>">
-					<div class = "form-inline" style = "float:left;">
-						<label>Firstname</label>
-						<br />
-						<input type = "text" value = "<?php echo $fetch['firstname']?>" class = "form-control" size = "40" disabled = "disabled"/>
-					</div>
+					
 					<div class = "form-inline" style = "float:left; margin-left:20px;">
-						<label>Middlename</label>
+						<label>Name</label>
 						<br />
-						<input type = "text" value = "<?php echo $fetch['middlename']?>" class = "form-control" size = "20" disabled = "disabled"/>
-					</div>
-					<div class = "form-inline" style = "float:left; margin-left:20px;">
-						<label>Lastname</label>
-						<br />
-						<input type = "text" value = "<?php echo $fetch['lastname']?>" class = "form-control" size = "30" disabled = "disabled"/>
+						<input type = "text" value = "<?php echo $fetch['name']?>" class = "form-control" size = "30" disabled = "disabled"/>
 					</div>
 					<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>email</label>
@@ -102,12 +95,14 @@
 				</div>
 				<div class="form-group">
 					<label>Subject</label>
-					<input type="text" class="form-control" name="subject" required="required" />
+					<input type="text" class="form-control" name="subject" required="required" value="Dicard Request Booking" disabled = "disabled"/>
 				</div>
+
 				<div class="form-group">
 					<label>Message</label>
-					<input type="text" class="form-control" name="message" required="required"/>
+					<textarea class="form-control" name="message" required="required" rows="2"></textarea>
 				</div>
+
 				<center><button name="send" href = "confirm_reserve.php?transaction_id=<?php echo $fetch['transaction_id']?>"class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Send</button></center>
 			</form>
 			<br />
