@@ -28,7 +28,10 @@
 					<br />
 					<center><h4>THANK YOU!</h4></center>
 					<br />
-					<center><a href = "reservation.php" class = "btn btn-success"><i class = "glphyicon glyphicon-check"></i> Back to reservation</a></center>
+                    <?php
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            ?>
+					<center><a href = "reservation.php?id=<?php echo $id; ?>" class = "btn btn-success"><i class = "glphyicon glyphicon-check"></i> Back to reservation</a></center>
 				</div>
 				<div class = "col-md-4"></div>
 			</div>

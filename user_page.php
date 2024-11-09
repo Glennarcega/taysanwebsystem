@@ -35,11 +35,18 @@
       </div>
   	<?php endif ?>
 
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="home_user.php" style="color: blue;">Continue</a> </p>
-    <?php endif ?>
+  <!-- logged in user information -->
+<?php  if (isset($_SESSION['username'])) : ?>
+    <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+    <?php
+        // Get the ID from the URL
+        $id = isset($_GET['id']) ? $_GET['id'] : ''; // Check if ID exists in the URL
+    ?>
+    <p> 
+        <a href="home_user.php?id=<?php echo $id; ?>" style="color: blue;">Continue</a> 
+    </p>
+<?php endif ?>
+
 </div>
 
 </body>

@@ -39,9 +39,13 @@
 				</div>
 				<br style = "clear:both;" />
 				<div class = "well col-md-4">
-				
+						
+						<?php
+						// Retrieve user_id from the URL if it exists
+						$user_id = isset($_GET['id']) ? $_GET['id'] : null;
+						?>
 					<form method = "POST" enctype = "multipart/form-data">
-				
+					<input type="hidden" name="id" value="<?php echo htmlspecialchars($user_id); ?>" />
 						<div class = "form-group">
 							<label>Firstname</label>
 							<input type = "text" class = "form-control" name = "firstname" required = "required" />

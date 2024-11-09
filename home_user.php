@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang = "en">
@@ -20,8 +21,13 @@
 	</nav>
 	<div class = "container-fluid">	
 		<ul class = "nav nav-pills">
+        <?php
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            ?>
+
 			<li class = "active"><a href = "">Home</a></li>
-			<li><a href = "reservation.php">Reservation</a></li>
+			<li><a href="reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
+            <li><a href="records.php?id=<?php echo $id; ?>">Records</a></li>
 
 			<li><a href = "login_user.php">Logout</a></li>			
 		</ul>	

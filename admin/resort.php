@@ -43,63 +43,78 @@
 				<div class = "alert alert-info">Resort </div>
 
 		<div style="padding: 20px; text-align: center;">
-            <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px;">
-                <img src="image/resort.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">
-                <div style="padding: 15px; text-align: center;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">RESORT</h3>
-                    <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
-                    <button onclick="window.location.href='resort.php'" style="border: none; background-color: transparent; cursor: pointer; margin-left: 10px;">
-                        <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px; margin-left: -15px;">
-                    </button>
-
-                    <div style="display: flex; justify-content: center; gap: 5px;">
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    </div>
-                </div>
-            </div>
-            
-
-        <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px;">
-            <img src="image/hotel.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">
-            <div style="padding: 15px; text-align: center;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">HOTEL</h3>
-                <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
-                <button onclick="window.location.href='room.php'" style="border: none; background-color: transparent; cursor: pointer; margin-left: 10px;">
-                    <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px; margin-left: -15px;">
-                </button>
-
-                <div style="display: flex; justify-content: center; gap: 5px;">
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                </div>
-            </div>
+        <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
+     onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+     onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+    <img src="image/resort.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
+         onmouseover="this.style.transform='scale(1.1)';" 
+         onmouseout="this.style.transform='scale(1)';">
+    <div style="padding: 15px; text-align: center;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">RESORT</h3>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+        <button onclick="window.location.href='resort.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
+                onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+            <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
+        </button>
+        <div style="display: flex; justify-content: center; gap: 5px;">
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
         </div>
+    </div>
+</div>
 
-        <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px;">
-            <img src="image/attraction.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">
-            <div style="padding: 15px; text-align: center;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">ATTRACTION</h3>
-                <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
-                <button onclick="window.location.href='attraction.php'" style="border: none; background-color: transparent; cursor: pointer; margin-left: 10px;">
-					<img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px; margin-left: -15px;">
-				</button>
-                <div style="display: flex; justify-content: center; gap: 5px;">
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                </div>
-            </div>
+<div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
+     onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+     onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+    <img src="image/hotel.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
+         onmouseover="this.style.transform='scale(1.1)';" 
+         onmouseout="this.style.transform='scale(1)';">
+    <div style="padding: 15px; text-align: center;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">HOTEL</h3>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+        <button onclick="window.location.href='room.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
+                onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+            <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
+        </button>
+        <div style="display: flex; justify-content: center; gap: 5px;">
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+        </div>
+    </div>
+</div>
 
-			</div>
+<div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
+     onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+     onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+    <img src="image/attraction.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
+         onmouseover="this.style.transform='scale(1.1)';" 
+         onmouseout="this.style.transform='scale(1)';">
+    <div style="padding: 15px; text-align: center;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">ATTRACTION</h3>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+        <button onclick="window.location.href='attraction.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
+                onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+            <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
+        </button>
+        <div style="display: flex; justify-content: center; gap: 5px;">
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+        </div>
+    </div>
+</div>
+
         </div>
 		<div>
 				<a class = "btn btn-success" href = "add_resort.php"><i class = "glyphicon glyphicon-plus"></i> Add Resort</a>

@@ -2,6 +2,7 @@
 require_once 'connection/connect.php';
 
 if (isset($_POST['add_guest'])) {
+    $id = $_POST['id'];
     $firstname = $_POST['firstname'];
     $middlename = $_POST['middlename'];
     $lastname = $_POST['lastname'];
@@ -36,11 +37,13 @@ if (isset($_POST['add_guest'])) {
             $total_bill = $room_price * $days;
 
             // Insert transaction with total bill
-            $conn->query("INSERT INTO `transaction` (guest_id, room_id, status, checkin, days,bill) VALUES ('$guest_id', '$room_id', 'Pending', '$checkin', '$days', '$bill')") or die(mysqli_error($conn));
+            $conn->query("INSERT INTO `transaction` (id, guest_id, room_id, status, checkin, days,bill) VALUES ('$id', '$guest_id', '$room_id', 'Pending', '$checkin', '$days', '$bill')") or die(mysqli_error($conn));
 
             // Redirect to the reply page after successful insertion
-            header("Location: reply_reserve.php");
-            exit();
+            
+            header("Location: reply_reserve.php?id=" . urlencode($id));
+            exit;  // Always call exit after a header redirect to stop further script execution
+            
         } else {
             echo "<script>alert('Error: Guest ID not found.')</script>";
         }
