@@ -1,4 +1,9 @@
+
+
 <!DOCTYPE html>
+<?php
+require_once 'connection/connect.php';
+?>
 
 <html lang = "en">
 	<head>
@@ -19,15 +24,15 @@
 		</div>
 	</nav>
 	<div class = "container-fluid">	
-		<ul class = "nav nav-pills">
+    <ul class = "nav nav-pills">
         <?php
             $id = isset($_GET['id']) ? $_GET['id'] : null;
             ?>
 
             <li><a href="home_user.php?id=<?php echo $id; ?>">Home</a></li>
-			<li class = "active"><a href="reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
+			<li><a href="reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
             <li><a href="records.php?id=<?php echo $id; ?>">Hotel Booking</a></li>
-            <li><a href="records_resort.php?id=<?php echo $id; ?>">Resort Booking</a></li>
+            <li class = "active"><a href="records_resort.php?id=<?php echo $id; ?>">Resort Booking</a></li>
 			<li><a href = "login_user.php">Logout</a></li>			
 		</ul>	
 	</div>
@@ -45,51 +50,82 @@
         </header>
         <!-- end of header -->
 		  <!-- body content  -->
-		  <section class = "services sec-width" id = "services">
-            <div class = "title">
-                <h4>Make Reservation</h4>
-            </div>
-           <!-- syart booking content  -->
-            <div style="padding: 20px; text-align: center;">
-            <?php
-                require_once 'connection/connect.php';
-                $query = $conn->query("SELECT * FROM `room` ORDER BY `price` ASC") or die(mysql_error());
-                while($fetch = $query->fetch_array()){
-                ?>
-                    <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
-                        onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
-                        onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-                        <img src="photo/<?php echo $fetch['photo']; ?>" alt="Room Image" style="width: 100%; height: 150px; object-fit: cover; transition: all 0.3s ease;" 
-                            onmouseover="this.style.transform='scale(1.1)';" 
-                            onmouseout="this.style.transform='scale(1)';">
-                        <div style="padding: 10px; text-align: center;">
-                            <h3 style="font-size: 2.2rem; margin-bottom: 5px; font-weight: bold; color: black;"><?php echo $fetch['hotel_name']; ?></h3>
-                            <h4 style="font-size: 2rem; color: #00ff00;"><?php echo "Price: Php. ".$fetch['price'].".00"; ?></h4>
-                            <h4 style="font-size: 2rem; color: #555; margin-bottom: 15px;"><?php echo $fetch['descr']; ?></h4>
-                            <button onclick="window.location.href = 'add_reserve.php?room_id=<?php echo $fetch['room_id']; ?>&id=<?php echo $id; ?>';
-" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
-                                    onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
-                                    onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
-                                <img src="image/next.png" alt="Reserve Button" style="width: 20px; height: 20px;">
-                            </button>
-                        </div>
-                    </div>
-                <?php
+
+			<?php
+            
+				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Pending'") or die(mysqli_error());
+				$f_p = $q_p->fetch_array();
+				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Reserved'") or die(mysqli_error());
+				$f_c = $q_c->fetch_array();
+				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check In'") or die(mysqli_error());
+				$f_ci = $q_ci->fetch_array();
+				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
+				$f_cw = $q_cw->fetch_array();
+			?>
+			 <div class="title">
+                    <h4 style="color: black;">Records</h4>
+                </div>
+ 
+                <table id = "table" class = "table table-bordered">
+					<thead>
+						<tr>
+							<th>Resort Name</th>
+		
+							<th>Reserved Date</th>
+							<th>Status</th>
+                            <th>Bill</th>
+
+
+						</tr>
+						
+					</thead>
+					<tbody>
+                    <?php
+// Retrieve the 'id' parameter from the URL
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0; // Ensure the ID is an integer
+
+
+// Query to get records where the 'id' matches and status is 'Pending'
+$query = $conn->query(
+    "SELECT * FROM `transactionresort` 
+    NATURAL JOIN `guest` 
+    NATURAL JOIN `resort` 
+    WHERE `status` = 'Pending' AND `id` = $id"
+) or die(mysqli_error($conn));
+
+// Check if any rows were returned
+if ($query->num_rows > 0) {
+    while ($fetch = $query->fetch_array()) {
+        ?>
+        <tr>
+            <td><?php echo $fetch['resort_name']; ?></td>
+            <td><strong>
+                <?php 
+                if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {
+                    echo "<label style='color:#ff0000;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                } else {
+                    echo "<label style='color:#00ff00;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
                 }
                 ?>
+            </strong></td>
+            <td><?php echo $fetch['status']; ?></td>
+            <td><?php echo $fetch['bill']; ?></td>
+        </tr>
+        <?php
+    }
+} else {
+    echo "<tr><td colspan='4'>No records found</td></tr>";
+}
+?>
 
-            
-
-            </div>
-           <!-- end booking example -->
-           
-        </section>
-
-
-        <!-- end of body content -->
-        
-        <!-- footer -->
-        <footer class = "footer">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	 <!-- footer -->
+     <footer class = "footer">
             <div class = "footer-container">
                 <div>
                     <h2>About Us </h2>
@@ -157,21 +193,26 @@
         <!-- end of footer -->
     
 
-        
-
-    
-			</div>
-		</div>
-	</div>
-	
-	
-	<br />
-	<div style = "text-align:right; margin-right:10px;" class = "navbar navbar-default navbar-fixed-bottom">
-
-	</div>
 	 
    
     </body>
+<script src = "/js/jquery.dataTables.js"></script>
+<script src = "/js/dataTables.bootstrap.js"></script>	
+<script type = "text/javascript">
+	$(document).ready(function(){
+		$("#table").DataTable();
+	});
+</script>
+<script type = "text/javascript">
+	function confirmationDelete(anchor){
+		var conf = confirm("Are you sure you want to delete this record?");
+		if(conf){
+			window.location = anchor.attr("href");
+		}
+	} 
+</script>
     <script src= "js/script.js"></script>
 
 </html>
+
+

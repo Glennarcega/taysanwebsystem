@@ -20,8 +20,13 @@
 	</nav>
 	<div class = "container-fluid">	
 		<ul class = "nav nav-pills">
-			<li><a href = "home_user.php">Home</a></li>
-			<li class = "active"><a href = "reservation.php">Reservation</a></li>
+        <?php
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            ?>
+			<li><a href = "">Home</a></li>
+			<li class = "active"><a href="reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
+            <li><a href="records.php?id=<?php echo $id; ?>">Hotel Booking</a></li>
+            <li><a href="records_resort.php?id=<?php echo $id; ?>">Resort Booking</a></li>
 
 			<li><a href = "login_user.php">Logout</a></li>			
 		</ul>	
@@ -41,9 +46,10 @@
         <!-- end of header -->
 		  <!-- body content  -->
 		  <section class = "services sec-width" id = "services">
-            <div class = "title">
-                <h4>Make Reservation</h4>
-            </div>
+          <div class="title">
+            <h4 style="color: black;">Attraction </h4>
+        </div>
+
            <!-- syart booking content  -->
             <div style="padding: 20px; text-align: center;">
             <?php
@@ -60,7 +66,7 @@
                         <div style="padding: 10px; text-align: center;">
                             <h3 style="font-size: 2.2rem; margin-bottom: 5px; font-weight: bold; color: black;"><?php echo $fetch['attraction_name']; ?></h3>
                             <h4 style="font-size: 2rem; color: #555; margin-bottom: 15px;"><?php echo $fetch['descr']; ?></h4>
-                            <button onclick="window.location.href='add_reserve.php?attraction_id=<?php echo $fetch['attraction_id']; ?>'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                            <button onclick="window.location.href='#?attraction_id=<?php echo $fetch['attraction_id']; ?>'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
                                     onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
                                     onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
                                 <img src="image/next.png" alt="Reserve Button" style="width: 20px; height: 20px;">

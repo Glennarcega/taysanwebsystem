@@ -27,8 +27,8 @@
 
 			<li class = "active"><a href = "">Home</a></li>
 			<li><a href="reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
-            <li><a href="records.php?id=<?php echo $id; ?>">Records</a></li>
-
+            <li><a href="records.php?id=<?php echo $id; ?>">Hotel Booking</a></li>
+            <li><a href="records_resort.php?id=<?php echo $id; ?>">Resort Booking</a></li>
 			<li><a href = "login_user.php">Logout</a></li>			
 		</ul>	
 	</div>

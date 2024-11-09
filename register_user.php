@@ -26,23 +26,39 @@
 	
   <form method="post" action="register_user.php">
   	<?php include('user_query/errors.php'); ?>
+      <div class="input-group">
+  	  <label>Name</label>
+  	  <input type="text" name="name" size="50" required = "required" />
+  	</div>
+
+      <div class="input-group">
+      <label>Address</label>
+		<input type = "text" name = "address" size="50" required = "required" />
+		</div>
+  	</div>
+
+      <div class="input-group">
+      <label>Contact No</label>
+		<input type = "text" name = "contactno" size="50" required = "required" />
+	 </div>
+
   	<div class="input-group">
   	  <label>Username</label>
-  	  <input type="text" name="username" size="50">
+  	  <input type="text" name="username" size="50" required = "required" />
   	</div>
   	<div class="input-group">
   	  <label>Email</label>
-  	  <input type="email" name="email" size="50">
+  	  <input type="email" name="email" size="50" required = "required" />
   	</div>
 
 
   	<div class="input-group">
   	  <label>Password</label>
-  	  <input type="password" name="password_1" size="50">
+  	  <input type="password" name="password_1" size="50" required = "required" />
   	</div>
   	<div class="input-group">
   	  <label>Confirm password</label>
-  	  <input type="password" name="password_2" size="50">
+  	  <input type="password" name="password_2" size="50" required = "required" />
   	</div>
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>

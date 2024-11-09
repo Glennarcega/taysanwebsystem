@@ -31,7 +31,8 @@ require_once 'connection/connect.php';
 
             <li><a href="home_user.php?id=<?php echo $id; ?>">Home</a></li>
 			<li><a href="reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
-            <li class = "active"><a href="records.php?id=<?php echo $id; ?>">Records</a></li>
+            <li class = "active"><a href="records.php?id=<?php echo $id; ?>">Hotel Booking</a></li>
+            <li><a href="records_resort.php?id=<?php echo $id; ?>">Resort Booking</a></li>
 
 			<li><a href = "login_user.php">Logout</a></li>			
 		</ul>	
@@ -62,74 +63,101 @@ require_once 'connection/connect.php';
 				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
 				$f_cw = $q_cw->fetch_array();
 			?>
-			<div class = "panel-body">
+                <div class="title">
+                    <h4 style="color: black;">Records</h4>
+                </div>
 
-				<br />
-				
- 
 				<table id = "table" class = "table table-bordered">
+               
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Contact No</th>
-							<th>Email</th>
+                            <th>Hotel Name</th>
 							<th>Room Type</th>
 							<th>Reserved Date</th>
 							<th>Status</th>
+                            <th>Bill</th>
+
 
 						</tr>
 						
 					</thead>
 					<tbody>
                     <?php
-// Retrieve the 'id' parameter from the URL
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0; // Ensure the ID is an integer
-
-// Query to get records where the 'id' matches and status is 'Pending'
-$query = $conn->query(
-    "SELECT * FROM `transaction` 
-    NATURAL JOIN `guest` 
-    NATURAL JOIN `room` 
-    WHERE `status` = 'Pending' AND `id` = $id"
-) or die(mysqli_error($conn));
-
-while ($fetch = $query->fetch_array()) {
-?>
-    <tr>
-        <td><?php echo $fetch['firstname'] . " " . $fetch['lastname']; ?></td>
-        <td><?php echo $fetch['contactno']; ?></td>
-        <td><?php echo $fetch['email']; ?></td>
-        <td><?php echo $fetch['room_type']; ?></td>
-        <td><strong>
-            <?php 
-            if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {
-                echo "<label style='color:#ff0000;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
-            } else {
-                echo "<label style='color:#00ff00;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
-            }
-            ?>
-        </strong></td>
-        <td><?php echo $fetch['status']; ?></td>
-    </tr>
-<?php
-}
-?>
-
-				
+                        
+                        // Ensure database connection is successful
+                        if ($conn) {
+                            // Retrieve the 'id' parameter from the URL
+                            $id = isset($_GET['id']) ? intval($_GET['id']) : 0; // Ensure the ID is an integer
+                        
+                            // Check if the id is valid before querying
+                            if ($id > 0) {
+                                // Prepare the query using prepared statements to avoid SQL injection
+                                $query = $conn->prepare(
+                                    "SELECT * FROM `transaction`
+                                     NATURAL JOIN `guest`
+                                     NATURAL JOIN `room`
+                                     WHERE `status` = 'Pending' AND `id` = ?"
+                                );
+                                $query->bind_param("i", $id); // Bind the 'id' parameter to the query
+                        
+                                // Execute the query
+                                $query->execute();
+                        
+                                // Get the result
+                                $result = $query->get_result();
+                        
+                                // Check if records were found
+                                if ($result->num_rows > 0) {
+                                    // Loop through the records and display them
+                                    while ($fetch = $result->fetch_assoc()) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo htmlspecialchars($fetch['hotel_name']); ?></td>
+                                            <td><?php echo htmlspecialchars($fetch['room_type']); ?></td>
+                                            <td><strong>
+                                                <?php 
+                                                if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {
+                                                    echo "<label style='color:#ff0000;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                                                } else {
+                                                    echo "<label style='color:#00ff00;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                                                }
+                                                ?>
+                                            </strong></td>
+                                            <td><?php echo htmlspecialchars($fetch['status']); ?></td>
+                                            <td><?php echo htmlspecialchars($fetch['bill']); ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='5'>No records found</td></tr>";
+                                }
+                        
+                                // Close the prepared statement
+                                $query->close();
+                            } else {
+                                echo "<tr><td colspan='5'>Invalid ID provided</td></tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='5'>Database connection error</td></tr>";
+                        }
+                        ?>
+                        
+                                        
 					</tbody>
 				</table>
 		
-		  <section class = "services sec-width" id = "services">
-            
-            
-           
-        </section>
 
 
         <!-- end of body content -->
         
-        <!-- footer -->
-        <footer class = "footer">
+       
+    
+			</div>
+		</div>
+	</div>
+	
+	 <!-- footer -->
+     <footer class = "footer">
             <div class = "footer-container">
                 <div>
                     <h2>About Us </h2>
@@ -195,20 +223,6 @@ while ($fetch = $query->fetch_array()) {
             </div>
         </footer>
         <!-- end of footer -->
-    
-
-        
-
-    
-			</div>
-		</div>
-	</div>
-	
-	
-	<br />
-	<div style = "text-align:right; margin-right:10px;" class = "navbar navbar-default navbar-fixed-bottom">
-
-	</div>
 	 
    
     </body>

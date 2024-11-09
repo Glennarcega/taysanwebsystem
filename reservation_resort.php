@@ -20,10 +20,13 @@
 	</nav>
 	<div class = "container-fluid">	
 		<ul class = "nav nav-pills">
+        <?php
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            ?>
 			<li><a href = "home_user.php?id=<?php echo $id; ?>">Home</a></li>
 			<li class = "active"><a href = "reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
-            <li><a href="records.php?id=<?php echo $id; ?>">Records</a></li>
-
+            <li><a href="records.php?id=<?php echo $id; ?>">Hotel Booking</a></li>
+            <li><a href="records_resort.php?id=<?php echo $id; ?>">Resort Booking</a></li>
 			<li><a href = "login_user.php">Logout</a></li>			
 		</ul>	
 	</div>
@@ -62,9 +65,9 @@
                             <h3 style="font-size: 2.2rem; margin-bottom: 5px; font-weight: bold; color: black;"><?php echo $fetch['resort_name']; ?></h3>
                             <h4 style="font-size: 2rem; color: #00ff00;"><?php echo "Price: Php. ".$fetch['price'].".00"; ?></h4>
                             <h4 style="font-size: 2rem; color: #555; margin-bottom: 15px;"><?php echo $fetch['descr']; ?></h4>
-                            <button onclick="window.location.href='add_reserve.php?resort_id=<?php echo $fetch['resort_id']; ?>'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
-                                    onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
-                                    onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+<button onclick="window.location.href = 'add_reserve_resort.php?resort_id=<?php echo $fetch['resort_id']; ?>&id=<?php echo $id; ?>';
+" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                            onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
                                 <img src="image/next.png" alt="Reserve Button" style="width: 20px; height: 20px;">
                             </button>
                         </div>

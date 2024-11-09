@@ -26,8 +26,8 @@
 
             <li><a href="home_user.php?id=<?php echo $id; ?>">Home</a></li>
 			<li class = "active"><a href="reservation.php?id=<?php echo $id; ?>">Reservation</a></li>
-            <li><a href="records.php?id=<?php echo $id; ?>">Records</a></li>
-
+            <li><a href="records.php?id=<?php echo $id; ?>">Hotel Booking</a></li>
+            <li><a href="records_resort.php?id=<?php echo $id; ?>">Resort Booking</a></li>
 			<li><a href = "login_user.php">Logout</a></li>			
 		</ul>	
 	</div>
@@ -46,9 +46,9 @@
         <!-- end of header -->
 		  <!-- body content  -->
 		  <section class = "services sec-width" id = "services">
-            <div class = "title">
-                <h4>Make Reservation</h4>
-            </div>
+          <div class="title">
+                    <h4 style="color: black;">Make Reservation</h4>
+                </div>
            <!-- syart booking content  -->
             <div style="padding: 20px; text-align: center;">
             <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
@@ -206,20 +206,9 @@
         </footer>
         <!-- end of footer -->
     
-
-        
-
-    
 			</div>
 		</div>
-	</div>
-	
-	
-	<br />
-	<div style = "text-align:right; margin-right:10px;" class = "navbar navbar-default navbar-fixed-bottom">
-
-	</div>
-	 
+</div>
    
     </body>
     <script src= "js/script.js"></script>

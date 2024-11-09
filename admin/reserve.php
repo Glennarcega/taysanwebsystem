@@ -84,7 +84,7 @@
 							while($fetch = $query->fetch_array()){
 						?>
 						<tr>
-							<td><?php echo $fetch['firstname']." ".$fetch['lastname']?></td>
+							<td><?php echo $fetch['name']?></td>
 							<td><?php echo $fetch['contactno']?></td>
 							<td><?php echo $fetch['email']?></td>
 							<td><?php echo $fetch['room_type']?></td>

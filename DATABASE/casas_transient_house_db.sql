@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2024 at 11:34 AM
+-- Generation Time: Nov 09, 2024 at 03:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -69,9 +69,7 @@ INSERT INTO `attraction` (`attraction_id`, `attraction_name`, `descr`, `photo`) 
 
 CREATE TABLE `guest` (
   `guest_id` int(11) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `middlename` varchar(30) NOT NULL,
-  `lastname` varchar(40) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `contactno` varchar(13) NOT NULL,
   `email` varchar(100) NOT NULL
@@ -81,16 +79,13 @@ CREATE TABLE `guest` (
 -- Dumping data for table `guest`
 --
 
-INSERT INTO `guest` (`guest_id`, `firstname`, `middlename`, `lastname`, `address`, `contactno`, `email`) VALUES
-(212, 'glenn', 'p', 'arcega', 'gwfjcejsbfc', '09039278', 'glennarcega177@gmail.com'),
-(213, 'glenn', 'p', 'arcega', 'gwfjcejsbfc', '09039278', 'glennemersona@gmail.com'),
-(214, 'glenn', 'p', 'arcega', 'gwfjcejsbfc', '0903927832', 'glennemersona@gmail.com'),
-(215, 'glw', 'w', ' ch', 'wbcw', '0909103', 'glennarcega177@gmail.com'),
-(216, 'dw', 'dwqwddc', 'ecs', 'csej', '09089292', 'glennarcega177@gmail.com'),
-(217, 'glenn', '3wdffe', 'fecff', 'evewe', '0902398219', 'glennarcega177@gmail.com'),
-(218, 'glaixa', 'plata', 'arcega', 'ubewhbfjwe', '090213882', 'glennemersona@gmail.com'),
-(219, 'galixa', 'plata', 'arcega', 'fefcwfc', '090839823', 'glennemersona@gmail.com'),
-(220, 'galixa', 'plata', 'arcega', 'fefcwfc', '090839823', 'glennemersona@gmail.com');
+INSERT INTO `guest` (`guest_id`, `name`, `address`, `contactno`, `email`) VALUES
+(233, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(234, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(235, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(236, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(237, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(238, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -151,6 +146,7 @@ CREATE TABLE `transaction` (
   `id` varchar(11) NOT NULL,
   `guest_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
+  `hotel_name` varchar(200) NOT NULL,
   `room_no` int(5) NOT NULL,
   `status` varchar(20) NOT NULL,
   `days` int(2) NOT NULL,
@@ -165,15 +161,36 @@ CREATE TABLE `transaction` (
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`transaction_id`, `id`, `guest_id`, `room_id`, `room_no`, `status`, `days`, `checkin`, `checkin_time`, `checkout`, `checkout_time`, `bill`) VALUES
-(160, '29', 213, 33, 1, 'Check Out', 2, '2024-11-08', '21:46:56', '1970-01-01', '22:09:24', '200'),
-(161, '0', 214, 33, 3, 'Check Out', 2, '2024-11-08', '22:06:12', '1970-01-01', '22:44:17', '200'),
-(162, '0', 215, 37, 2, 'Check In', 2, '2024-11-09', '22:02:50', '1970-01-01', '00:00:00', '2000'),
-(163, '0', 216, 33, 0, 'Pending', 3, '2024-11-09', '00:00:00', '0000-00-00', '00:00:00', ''),
-(164, '0', 217, 33, 0, 'Pending', 2, '2024-11-09', '00:00:00', '0000-00-00', '00:00:00', ''),
-(165, '29', 218, 38, 0, 'Pending', 2, '2024-11-16', '00:00:00', '0000-00-00', '00:00:00', ''),
-(166, '29', 219, 38, 0, 'Pending', 3, '2024-11-14', '00:00:00', '0000-00-00', '00:00:00', ''),
-(167, '29', 219, 38, 0, 'Pending', 2, '2024-11-14', '00:00:00', '0000-00-00', '00:00:00', '');
+INSERT INTO `transaction` (`transaction_id`, `id`, `guest_id`, `room_id`, `hotel_name`, `room_no`, `status`, `days`, `checkin`, `checkin_time`, `checkout`, `checkout_time`, `bill`) VALUES
+(177, '32', 233, 33, 'macrolodge', 0, 'Pending', 3, '2024-11-16', '00:00:00', '0000-00-00', '00:00:00', 'Php. 300.0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactionresort`
+--
+
+CREATE TABLE `transactionresort` (
+  `transaction_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `guest_id` int(11) NOT NULL,
+  `resort_id` int(11) NOT NULL,
+  `resort_name` varchar(200) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `days` int(3) NOT NULL,
+  `checkin` date NOT NULL,
+  `checkin_time` time NOT NULL,
+  `checkout` date NOT NULL,
+  `checkout_time` time NOT NULL,
+  `bill` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transactionresort`
+--
+
+INSERT INTO `transactionresort` (`transaction_id`, `id`, `guest_id`, `resort_id`, `resort_name`, `status`, `days`, `checkin`, `checkin_time`, `checkout`, `checkout_time`, `bill`) VALUES
+(8, 32, 233, 2, 'villa gabo 1', 'Pending', 12, '2024-11-15', '00:00:00', '0000-00-00', '00:00:00', 'Php. 120.0');
 
 -- --------------------------------------------------------
 
@@ -183,6 +200,9 @@ INSERT INTO `transaction` (`transaction_id`, `id`, `guest_id`, `room_id`, `room_
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `contactno` varchar(15) NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
@@ -192,9 +212,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(28, 'glenn', 'glennarcega177@gmail.com', '3c784bff199ef62ecc2f3a988f395c62'),
-(29, 'wato', 'glennemersona@gmail.com', '$2y$10$2H8.FB0LchTNuxiXIreTF.gRpcA/DVRiyvpfeHeoOdrbyn7n8wYGa');
+INSERT INTO `users` (`id`, `name`, `address`, `contactno`, `username`, `email`, `password`) VALUES
+(32, 'glenda', 'eqsdqe', '09952846057', 'glenn', 'glennarcega177@gmail.com', '$2y$10$vBuMk99um3IMdI0XluqyhuL4sIGcshTE3G/X1JFDMkCgWWe17gLSm'),
+(33, 'galiza', 'Tabangao Ambulong batangas City', '0901327323', 'galiza', 'glennemersona@gmail.com', '$2y$10$5T3RziUoVbXkzUJ0FmhHlOQzAZwCo1OYfsk3GDF45S72cH.5cn91i');
 
 --
 -- Indexes for dumped tables
@@ -237,6 +257,12 @@ ALTER TABLE `transaction`
   ADD PRIMARY KEY (`transaction_id`);
 
 --
+-- Indexes for table `transactionresort`
+--
+ALTER TABLE `transactionresort`
+  ADD PRIMARY KEY (`transaction_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -262,7 +288,7 @@ ALTER TABLE `attraction`
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-  MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
+  MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT for table `resort`
@@ -280,13 +306,19 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
+
+--
+-- AUTO_INCREMENT for table `transactionresort`
+--
+ALTER TABLE `transactionresort`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
