@@ -50,7 +50,7 @@
 				<br />
 				<form method = "POST" enctype = "multipart/form-data" action = "../admin_query/save_form.php?transaction_id=<?php echo $fetch['transaction_id']?>">
 					
-					<div class = "form-inline" style = "float:left; margin-left:20px;">
+				<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Name</label>
 						<br />
 						<input type = "text" value = "<?php echo $fetch['name']?>" class = "form-control" size = "30" disabled = "disabled"/>
@@ -62,18 +62,29 @@
 					</div>
 					<br style = "clear:both;"/>
 					<br />
-					<div class = "form-inline" style = "float:left;">
+					<div class = "form-inline" style = "float:left; margin-left:20px;">
+						<label>Hotel Name</label>
+						<br />
+						<input type = "text" value = "<?php echo $fetch['hotel_name']?>" class = "form-control" size = "30" disabled = "disabled"/>
+					</div>
+					
+					<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Room Type</label>
 						<br />
-						<input type = "text" value = "<?php echo $fetch['room_type']?>" class = "form-control" size = "20" disabled = "disabled"/>
+						<input type = "text" value = "<?php echo $fetch['room_type']?>" class = "form-control" size = "10" disabled = "disabled"/>
 						
 					</div>
-				
+					<div class = "form-inline" style = "float:left; margin-left:20px;">
+						<label>Reserved Date</label>
+						<br />
+						<input type = "text" value = "<?php echo $fetch['checkin']?>" class = "form-control" size = "10" disabled = "disabled"/>
+					</div>
 					<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Days</label>
 						<br />
 						<input type = "number" min = "0" max = "99" name = "days" value = "<?php echo $fetch['days']?>" class = "form-control" disabled = "disabled"/>
 					</div>
+				
 				
 					<br style = "clear:both;"/>
 					<br />
@@ -98,10 +109,26 @@
 					<input type="text" class="form-control" name="subject" required="required" value="Dicard Request Booking" disabled = "disabled"/>
 				</div>
 
-				<div class="form-group">
-					<label>Message</label>
-					<textarea class="form-control" name="message" required="required" rows="2"></textarea>
-				</div>
+				<textarea class="form-control" name="message" required="required" rows="8" cols="50"><?php 
+					echo "Dear Customer,\n\n";
+					echo "We regret to inform you that your reservation has been successfully canceled. Below are the details of your canceled booking:\n\n";
+					echo "Name: " . $fetch['name'] . "\n";
+					echo "Hotel Name: " . $fetch['hotel_name'] . "\n";
+					echo "Room Type: " . $fetch['room_type'] . "\n";
+					echo "Reserved Date: " . $fetch['checkin'] . "\n";
+					echo "Number of Days: " . $fetch['days'] . "\n";
+					echo "Total Bill: " . $fetch['bill'] . "\n\n";
+					echo "We understand that plans can change, and we hope to welcome you on another occasion. If you have any further questions or need assistance, please do not hesitate to contact us.\n\n";
+					
+					echo "Once again, we sincerely apologize for any inconvenience caused. Should you need to make another reservation in the future, we would be more than happy to assist you.\n\n";
+					
+					echo "Best regards,\n";
+					echo "Your Hotel Name\n";
+					echo "Hotel Address\n";
+					echo "Hotel Contact Information\n";
+				?>
+				</textarea>
+
 
 				<center><button name="send" href = "confirm_reserve.php?transaction_id=<?php echo $fetch['transaction_id']?>"class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Send</button></center>
 			</form>

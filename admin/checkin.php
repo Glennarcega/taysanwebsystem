@@ -62,6 +62,8 @@
 					<thead>
 						<tr>
 							<th>Name</th>
+							<th>Contact Number</th>
+							<th>Hotel Name</th>
 							<th>Room Type</th>
 							<th>Room no</th>
 							<th>Check In</th>
@@ -79,10 +81,18 @@
 							while($fetch = $query->fetch_array()){
 						?>
 						<tr>
-							<td><?php echo $fetch['firstname']." ".$fetch['lastname']?></td>
+							<td><?php echo $fetch['name']?></td>
+							<td><?php echo $fetch['contactno']?></td>
+							<td><?php echo $fetch['hotel_name']?></td>
 							<td><?php echo $fetch['room_type']?></td>
 							<td><?php echo $fetch['room_no']?></td>
-							<td><?php echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>"." @ "."<label>".date("h:i a", strtotime($fetch['checkin_time']))."</label>"?></td>
+							<?php
+							date_default_timezone_set('Asia/Manila');
+							echo "<td>";
+							echo "<label style='color:#00ff00;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>" . " @ " . "<label>" . date("h:i a", strtotime($fetch['checkin_time'])) . "</label>";
+							echo "</td>";
+							?>
+
 							<td><?php echo $fetch['days']?></td>
 							<td><?php echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']."+".$fetch['days']."DAYS"))."</label>"?></td>
 							<td><?php echo $fetch['status']?></td>

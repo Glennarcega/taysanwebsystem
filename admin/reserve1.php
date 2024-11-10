@@ -32,8 +32,8 @@
 		<ul class = "nav nav-pills">
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
-			<li class = "active"><a href = "account.php">Accounts</a></li>
-			<li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li ><a href = "account.php">Accounts</a></li>
+			<li class = "active"><a href = "reserve.php">Hotel Booking</a></li>
 			<li><a href = "reserve_resort.php">Resort Booking</a></li>
 			<li ><a href = "room.php">Booking</a></li>				
 		</ul>	
@@ -55,7 +55,7 @@
 			<div class = "panel-body">
 	
 				<a class = "btn btn-info" href="reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
-				<a class = "btn btn-info" href="reserve.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
+				<a class = "btn btn-info" href="reserve1.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
 				<a class = "btn btn-info" href = "checkin.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
 				<a class = "btn btn-warning" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
 				<br />
@@ -72,7 +72,9 @@
 							<th>Name</th>
 							<th>Contact No</th>
 							<th>Email</th>
+							<th>Hotel Name</th>
 							<th>Room Type</th>
+							<th>Bill</th>
 							<th>Reserved Date</th>
 							<th>Status</th>
 							<th>Action</th>
@@ -85,13 +87,15 @@
 							while($fetch = $query->fetch_array()){
 						?>
 						<tr>
-							<td><?php echo $fetch['firstname']." ".$fetch['lastname']?></td>
+							<td><?php echo $fetch['name']?></td>
 							<td><?php echo $fetch['contactno']?></td>
 							<td><?php echo $fetch['email']?></td>
+							<td><?php echo $fetch['hotel_name']?></td>
 							<td><?php echo $fetch['room_type']?></td>
+							<td><?php echo $fetch['bill']?></td>
 							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
 							<td><?php echo $fetch['status']?></td>
-							<td><center><a class = "btn btn-success" href = "sendtoemail.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Confirm</a> <a class = "btn btn-danger" href = "sendtoemail_discard.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Discard</a>
+							<td><center><a class = "btn btn-success" href = "../admin_query/checkin_query_reserve.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Checkin</a> <a class = "btn btn-danger" href = "sendtoemail_discard.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Discard</a>
 						</tr>
 						<?php
 							}

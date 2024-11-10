@@ -62,13 +62,23 @@
 					</div>
 					<br style = "clear:both;"/>
 					<br />
-					<div class = "form-inline" style = "float:left;">
+					<div class = "form-inline" style = "float:left; margin-left:20px;">
+						<label>Hotel Name</label>
+						<br />
+						<input type = "text" value = "<?php echo $fetch['hotel_name']?>" class = "form-control" size = "30" disabled = "disabled"/>
+					</div>
+					
+					<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Room Type</label>
 						<br />
-						<input type = "text" value = "<?php echo $fetch['room_type']?>" class = "form-control" size = "20" disabled = "disabled"/>
+						<input type = "text" value = "<?php echo $fetch['room_type']?>" class = "form-control" size = "10" disabled = "disabled"/>
 						
 					</div>
-				
+					<div class = "form-inline" style = "float:left; margin-left:20px;">
+						<label>Reserved Date</label>
+						<br />
+						<input type = "text" value = "<?php echo $fetch['checkin']?>" class = "form-control" size = "10" disabled = "disabled"/>
+					</div>
 					<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Days</label>
 						<br />
@@ -97,31 +107,36 @@
 				</div>
 				<div class="form-group">
 					<label>Subject</label>
-					<input type="text" class="form-control" name="subject" required="required" value="Accept Request Booking" disabled = "disabled"/>
+					<input type="text" class="form-control" name="subject" required="required" value="Accept Request Booking"/>
 				</div>
 				<div class="form-group">
-					<label>Message</label>
-					<textarea class="form-control" name="message" required="required" rows="2"></textarea>
-				</div>
+				<label>Message</label>
+				<textarea class="form-control" name="message" required="required" rows="7" cols="50"><?php 
+					echo "Dear Customer,\n\n";
+					echo "Thank you for choosing our services. Below are the details of your reservation:\n\n";
+					echo "Name: " . $fetch['name'] . "\n";
+					echo "Hotel Name: " . $fetch['hotel_name'] . "\n";
+					echo "Room Type: " . $fetch['room_type'] . "\n";
+					echo "Reserved Date: " . $fetch['checkin'] . "\n";
+					echo "Number of Days: " . $fetch['days'] . "\n";
+					echo "Total Bill: " . $fetch['bill'] . "\n\n";
+					echo "We look forward to your stay with us. Should you need further assistance, please don't hesitate to contact us.\n\n";
+					echo "Best regards,\n";
+					echo "Your Hotel Name\n";
+					echo "Hotel Address\n";
+					echo "Hotel Contact Information\n";
+				?>
+				</textarea>
+
+
+			</div>
+
+
+
 				<center><button name="send" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Send</button></center>
 			</form>
 			<br />
-			<?php
-				if(ISSET($_SESSION['status'])){
-					if($_SESSION['status'] == "ok"){
-			?>
-						<div class="alert alert-info"><?php echo $_SESSION['result']?></div>
-			<?php
-					}else{
-			?>
-						<div class="alert alert-danger"><?php echo $_SESSION['result']?></div>
-			<?php
-					}
-					
-					unset($_SESSION['result']);
-					unset($_SESSION['status']);
-				}
-			?>
+	
 		</div>
 	</div>
 
