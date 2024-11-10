@@ -5,7 +5,7 @@
 ?>
 <html lang = "en">
 	<head>
-		<title>Casa's Transient House</title>
+		<title>Taysan Web System</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
@@ -17,7 +17,7 @@
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>		
+            <a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			<ul class = "nav navbar-nav pull-right ">
 				<li class = "dropdown">
@@ -42,7 +42,8 @@
 		<div class = "panel panel-default">
 			<div class = "panel-body">
 				<div class = "alert alert-info">Hotel</div>
-
+                
+        <a href="resort.php" style="text-decoration: none;">
 		<div style="padding: 20px; text-align: center;">
         <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
             onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
@@ -67,7 +68,9 @@
                 </div>
             </div>
         </div>
+        </a>
 
+        <a href="room.php" style="text-decoration: none;">
         <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
             onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
             onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -91,7 +94,9 @@
                 </div>
             </div>
         </div>
+        </a>
 
+        <a href="attraction.php" style="text-decoration: none;">
         <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
             onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
             onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -115,7 +120,32 @@
                 </div>
             </div>
         </div>
-
+        </a>
+        <a href="cuisine.php" style="text-decoration: none;">
+           <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
+                onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+                onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+                <img src="image/cuisine.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
+                    onmouseover="this.style.transform='scale(1.1)';" 
+                    onmouseout="this.style.transform='scale(1)';">
+                <div style="padding: 15px; text-align: center;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">HOTEL</h3>
+                    <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+                    <button onclick="window.location.href='cuisine.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                            onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
+                            onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+                        <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
+                    </button>
+                    <div style="display: flex; justify-content: center; gap: 5px;">
+                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    </div>
+                </div>
+                </div>
+                </a>
 </div>
 				<a class = "btn btn-success" href = "add_room.php"><i class = "glyphicon glyphicon-plus"></i> Add hotel</a>
 				<br />

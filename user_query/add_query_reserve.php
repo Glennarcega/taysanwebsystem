@@ -39,9 +39,9 @@ if (isset($_POST['add_guest'])) {
 
             // Redirect to the reply page after successful insertion
             
-            header("Location: reply_reserve.php?id=" . urlencode($id));
-            exit;  // Always call exit after a header redirect to stop further script execution
-            
+            echo "<script>window.location.href = 'reply_reserve.php?id=" . urlencode($id) . "';</script>";
+exit;
+
         } else {
             echo "<script>alert('Error: Guest ID not found.')</script>";
         }

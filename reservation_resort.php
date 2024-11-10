@@ -2,7 +2,7 @@
 
 <html lang = "en">
 	<head>
-		<title>Casa's Transient House</title>
+		<title>Taysan Web System</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css " />
@@ -13,7 +13,7 @@
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>
+            <a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			
 		</div>
@@ -45,9 +45,10 @@
         <!-- end of header -->
 		  <!-- body content  -->
 		  <section class = "services sec-width" id = "services">
-            <div class = "title">
-                <h4>Make Reservation</h4>
-            </div>
+          <div class="title">
+            <h4 style="color: black;">Make Reservation</h4>
+        </div>
+
            <!-- syart booking content  -->
             <div style="padding: 20px; text-align: center;">
             <?php
@@ -55,6 +56,7 @@
                 $query = $conn->query("SELECT * FROM `resort` ORDER BY `price` ASC") or die(mysql_error());
                 while($fetch = $query->fetch_array()){
                 ?>
+                    <a href="add_reserve_resort.php?resort_id=<?php echo $fetch['resort_id']; ?>&id=<?php echo $id; ?>" style="text-decoration: none;">
                     <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
                         onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
                         onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -72,6 +74,7 @@
                             </button>
                         </div>
                     </div>
+                </a>
                 <?php
                 }
                 ?>

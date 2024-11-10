@@ -32,17 +32,17 @@
 		<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li  class = ""><a href = "reserve.php">Hotel Booking</a></li>
+            <li ><a href = "reserve.php">Hotel Booking</a></li>
 			<li><a href = "reserve_resort.php">Resort Booking</a></li>
-			<li class = "active"><a href = "room.php">Booking</a></li>				
+            <li class = "active"><a href = "room.php">Booking</a></li>				
 		</ul>	
 	</div>
 	<br />
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				<div class = "alert alert-info">Resort </div>
-
+				<div class = "alert alert-info">Cuisine</div>
+                
         <a href="resort.php" style="text-decoration: none;">
 		<div style="padding: 20px; text-align: center;">
         <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
@@ -67,61 +67,61 @@
                     <span style="font-size: 1.5rem; color: #FFD700;">★</span>
                 </div>
             </div>
-            </div>
-            </a>
-
-            <a href="room.php" style="text-decoration: none;">
-            <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
-                onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
-                onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-                <img src="image/hotel.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
-                    onmouseover="this.style.transform='scale(1.1)';" 
-                    onmouseout="this.style.transform='scale(1)';">
-                <div style="padding: 15px; text-align: center;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">HOTEL</h3>
-                    <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
-                    <button onclick="window.location.href='room.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
-                            onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
-                            onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
-                        <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
-                    </button>
-                    <div style="display: flex; justify-content: center; gap: 5px;">
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                        <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-                    </div>
-                </div>
-                </div>
-            </a>
-
-            <a href="attraction.php" style="text-decoration: none;">
-<div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
-     onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
-     onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-    <img src="image/attraction.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
-         onmouseover="this.style.transform='scale(1.1)';" 
-         onmouseout="this.style.transform='scale(1)';">
-    <div style="padding: 15px; text-align: center;">
-        <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">ATTRACTION</h3>
-        <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
-        <button onclick="window.location.href='attraction.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
-                onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
-            <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
-        </button>
-        <div style="display: flex; justify-content: center; gap: 5px;">
-            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
-            <span style="font-size: 1.5rem; color: #FFD700;">★</span>
         </div>
-    </div>
-</div>
-</a>
-<a href="cuisine.php" style="text-decoration: none;">
+        </a>
+
+        <a href="room.php" style="text-decoration: none;">
+        <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
+            onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+            onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <img src="image/hotel.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
+                onmouseover="this.style.transform='scale(1.1)';" 
+                onmouseout="this.style.transform='scale(1)';">
+            <div style="padding: 15px; text-align: center;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">HOTEL</h3>
+                <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+                <button onclick="window.location.href='room.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
+                        onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+                    <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
+                </button>
+                <div style="display: flex; justify-content: center; gap: 5px;">
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                </div>
+            </div>
+        </div>
+        </a>
+
+        <a href="attraction.php" style="text-decoration: none;">
+        <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
+            onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+            onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <img src="image/attraction.jpg" alt="Product Image" style="width: 100%; height: 200px; object-fit: cover; transition: all 0.3s ease;" 
+                onmouseover="this.style.transform='scale(1.1)';" 
+                onmouseout="this.style.transform='scale(1)';">
+            <div style="padding: 15px; text-align: center;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">ATTRACTION</h3>
+                <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+                <button onclick="window.location.href='attraction.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
+                        onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+                    <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
+                </button>
+                <div style="display: flex; justify-content: center; gap: 5px;">
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                    <span style="font-size: 1.5rem; color: #FFD700;">★</span>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="cuisine.php" style="text-decoration: none;">
            <div style="display: inline-block; width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
                 onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
                 onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -146,17 +146,15 @@
                 </div>
                 </div>
                 </a>
-                
-        </div>
-		<div>
-				<a class = "btn btn-success" href = "add_resort.php"><i class = "glyphicon glyphicon-plus"></i> Add Resort</a>
+</div>
+				<a class = "btn btn-success" href = "add_cuisine.php"><i class = "glyphicon glyphicon-plus"></i> Add Cuisine</a>
 				<br />
 				<br />
 				<table id = "table" class = "table table-bordered">
 					<thead>
 						<tr>
-							<th>Resort Name</th>
-							<th>Price</th>
+						    <th>Cuisine Name</th>
+							<th>Location</th>
 							<th>Description</th>
 							<th>Photo</th>
 							<th>Action</th>
@@ -164,15 +162,15 @@
 					</thead>
 					<tbody>
 					<?php
-						$query = $conn->query("SELECT * FROM `resort`") or die(mysqli_error());
+						$query = $conn->query("SELECT * FROM `cuisine`") or die(mysqli_error());
 						while($fetch = $query->fetch_array()){
 					?>	
 						<tr>
-							<td><?php echo $fetch['resort_name']?></td>
-							<td><?php echo $fetch['price']?></td>
+					    	<td><?php echo $fetch['cuisine_name']?></td>
+							<td><?php echo $fetch['location']?></td>
 							<td><?php echo $fetch['descr']?></td>
 							<td><center><img src = "../photo/<?php echo $fetch['photo']?>" height = "50" width = "50"/></center></td>
-							<td><center><a class = "btn btn-warning" href = "edit_resort.php?resort_id=<?php echo $fetch['resort_id']?>"></i> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "../admin_query/delete_resort.php?resort_id=<?php echo $fetch['resort_id']?>"> Delete</a></center></td>
+							<td><center><a class = "btn btn-warning" href = "edit_cuisine.php?cuisine_id=<?php echo $fetch['cuisine_id']?>"></i> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "../admin_query/delete_cuisine.php?room_id=<?php echo $fetch['cuisine_id']?>"> Delete</a></center></td>
 						</tr>
 					<?php
 						}

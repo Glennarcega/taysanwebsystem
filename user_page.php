@@ -20,7 +20,7 @@
 <body>
 
 <div class="header">
-	<h2>Welcome to Casa's Transient house!</h2>
+	<h2>Welcome to Taysan Web System</h2>
 </div>
 <div class="content">
   	<!-- notification message -->
@@ -37,13 +37,18 @@
 
   <!-- logged in user information -->
 <?php  if (isset($_SESSION['username'])) : ?>
-    <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+    <h1 style="text-align: center;">Welcome <strong></h1>
+    <br>
+    <h3 style="text-align: center;"><?php echo $_SESSION['username']; ?></h3>
+
     <?php
         // Get the ID from the URL
         $id = isset($_GET['id']) ? $_GET['id'] : ''; // Check if ID exists in the URL
     ?>
     <p> 
-        <a href="home_user.php?id=<?php echo $id; ?>" style="color: blue;">Continue</a> 
+    <div style="text-align: center;">
+    <a href="home_user.php?id=<?php echo $id; ?>" style="color: blue; text-decoration: none;">Continue</a>
+</div>
     </p>
 <?php endif ?>
 

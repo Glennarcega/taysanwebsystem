@@ -7,7 +7,7 @@ require_once 'connection/connect.php';
 
 <html lang = "en">
 	<head>
-		<title>Casa's Transient House</title>
+		<title>Taysan Web System</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css " />
@@ -18,7 +18,7 @@ require_once 'connection/connect.php';
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>
+            <a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			
 		</div>
@@ -73,6 +73,7 @@ require_once 'connection/connect.php';
 						<tr>
                             <th>Hotel Name</th>
 							<th>Room Type</th>
+                            <th>Room Number</th>
 							<th>Reserved Date</th>
 							<th>Status</th>
                             <th>Bill</th>
@@ -114,6 +115,7 @@ require_once 'connection/connect.php';
                                         <tr>
                                             <td><?php echo htmlspecialchars($fetch['hotel_name']); ?></td>
                                             <td><?php echo htmlspecialchars($fetch['room_type']); ?></td>
+                                            <td><?php echo htmlspecialchars($fetch['room_number']); ?></td>
                                             <td><strong>
                                                 <?php 
                                                if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {

@@ -3,7 +3,7 @@
 
 <html lang = "en">
 	<head>
-		<title>Casa's Transient House</title>
+		<title>Taysan Web System</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css " />
@@ -14,7 +14,7 @@
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>
+				<a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			
 		</div>
@@ -40,92 +40,22 @@
 				 <header class = "header" id = "header">
             
             <div class = "head-bottom flex">
-                <h2>NICE AND COMFORTABLE PLACE TO STAY</h2>
-                <p>Welcome to Casa’s Transient House! Start the day with a life full of happiness and enjoyment. Visit our place here at Maricaban, Tingloy, Batangas to amaze by the beauty of beaches here. What are you waiting for? Reserve your room now!</p>
-                <a href ="reservation.php" style="text-decoration:none;" button type = "button"  class = "head-btn">GET STARTED</button></a>
-            </div>
+        <h1 style="text-align: center; color: white; font-size: 4rem; margin-top: 30px;">Unlock the Secrets in Taysan,</h1>
+        <h2 style="text-align: center; color: white;  font-size: 4rem; margin-top: 20px;">Travel Beyond Expectations</h2>
+        <p style="text-align: center; color: white;  font-size: 1.5rem; margin-top: 20px;">we don't just plan trips, we craft unforgettable adventures.</p>
+        
+        <h2 style="text-align: center; color: white; font-size: 1rem; margin-top: 10px; padding: 10px 20px; border-radius: 40px; width: fit-content; box-sizing: border-box; border: 2px solid white; margin-left: auto; margin-right: auto;">
+            <button style="border: none; background-color: transparent; cursor: pointer; margin-left: 10px;">
+                <img src="image/location2.png" alt="Button Image" style="width: 30px; height: 30px; margin-left: -15px;">
+            </button>Popular Place
+        </h2>
+        </div>
         </header>
         <!-- end of header -->
 		  <!-- body content  -->
-		  <section class = "services sec-width" id = "services">
-            <div class = "title">
-                <h2>services</h2>
-            </div>
-            <div class = "services-container">
-                <!-- single service -->
-                <article class = "service">
-                    <div class = "service-icon">
-                        <span>
-                            <i class = "fas fa-utensils"></i>
-                        </span>
-                    </div>
-                    <div class = "service-content">
-                        <h2>Food Service</h2>
-                        <p>Casa’s Transient House offers foods and drinks services to any customers. Foods are part of a customers reservation package. Casa’s Transient house have different kind of menu's that you can choose. Guest and Customers can also cook their food if they're wanted to. Food services in this transient house is better and taste good at the same time.</p>
-                       
-
-                    </div>
-                </article>
-                <!-- end of single service -->
-                <!-- single service -->
-                <article class = "service">
-                    <div class = "service-icon">
-                        <span>
-                            <i class = "fas fa-swimming-pool"></i>
-                        </span>
-                    </div>
-                    <div class = "service-content">
-                        <h2>Refreshment</h2>
-                        <p>Any customers can enjoy the sea breeze and fresh air that will make themselves comfortable and relax. Customers can also do some snorkeling and diving as part of their vacation. Guest will fill their heart and lifes with enjoyment and happiness while visiting this transient house. It is refreshing, enjoying, and most of all beach is a very good place to relax.</p>
-                       
-                    </div>
-                </article>
-                <!-- end of single service -->
-                <!-- single service -->
-                <article class = "service">
-                    <div class = "service-icon">
-                        <span>
-                            <i class = "fas fa-broom"></i>
-                        </span>
-                    </div>
-                    <div class = "service-content">
-                        <h2>Housekeeping</h2>
-                        <p>Casa’s Transient House owner, maintain the cleanliness of the house. They are keeping every rooms comfortable for guest and customers. Person in charge of cleaning check every part of the rooms and taking care of dirts and garbage after and before the guest arrives.</p>
-                      
-                    </div>
-                </article>
-                <!-- end of single service -->
-                <!-- single service -->
-                <article class = "service">
-                    <div class = "service-icon">
-                        <span>
-                            <i class = "fas fa-door-closed"></i>
-                        </span>
-                    </div>
-                    <div class = "service-content">
-                        <h2>Room Security</h2>
-                        <p>Guest rooms are secured with double locks that prevents any malicious person to enter. Customers baggage and other supplies they brought are safe. Person in charge is not allowed to enter any guest room when there are visitors and customers are check in. Casa’s Transient assure the safety of every customers and guest. It is the most important rules of the Transient House to satisfy every customers needs and respect their wants while visiting the place.</p>
-                       
-
-                    </div>
-                </article>
-                <!-- end of single service -->
-            </div>
-        </section>
-
-		<section class = "location" id = "location">
-            <div class = "sec-width">
-                <div class = "title">
-                    <h2>Location</h2>
-                </div>
-                <div class = "map-wrapper">
-                    <iframe class="googlemap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d829.1201133727957!2d120.8377236!3d13.6699786!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bdab3c8df32c41%3A0x6cc1713e24fb4b83!2sMapating%20Beach%20Resort!5e1!3m2!1sen!2sph!4v1666580260542!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            
-                    </div>
-                    <!-- end of single customer -->
-                </div>
-            </div>
-        </section>
+	
+             
+	
         <!-- end of body content -->
         
         <!-- footer -->

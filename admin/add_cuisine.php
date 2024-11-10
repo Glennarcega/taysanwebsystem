@@ -1,39 +1,74 @@
 <!DOCTYPE html>
+<?php
+	require_once '../admin_query/validate.php';
+	require '../admin_query/name.php';
+?>
 <html lang = "en">
 	<head>
-		<title>Taysan Web System</title>
+		<title>Casa's Transient House</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
-		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css " />
-		<link rel = "stylesheet" type = "text/css" href = "css/style.css" />
-		<link rel="stylesheet"  type="text/css" href="css/css_footer.css">
+		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
+		<link rel = "stylesheet" type = "text/css" href = "../css/style.css" />
+		<link rel="stylesheet"  type="text/css" href="../css/css_footer.css">
 	</head>
 <body>
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-            <a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
+				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>
 			</div>
+			<ul class = "nav navbar-nav pull-right ">
+				<li class = "dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></i> <?php echo $name;?></a>
+				</li>
+				<li><a href = "index.php">Logout</a></li>	
+			</ul>
 		</div>
-	</nav>	
-
-	<div style = "margin-left:0;" class = "container">
+	</nav>
+	<div class = "container-fluid">	
+		<ul class = "nav nav-pills">
+			<li><a href = "home.php">Home</a></li>
+			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
+			<li><a href = "account.php">Accounts</a></li>
+			<li  class = ""><a href = "reserve.php">Hotel Booking</a></li>
+			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li class = "active"><a href = "room.php">Booking</a></li>			
+		</ul>	
+	</div>
+	<br />
+	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				<strong><h3>MAKE A RESERVATION</h3></strong>
+				<div class = "alert alert-info">Add Cuisine</div>
 				<br />
-				<div class = "col-md-4"></div>
-				<div class = "well col-md-4">
-					<center><h3>Please wait for the confirmation in your email account</h3></center>
-					<br />
-					<center><h4>THANK YOU!</h4></center>
-					<br />
-                    <?php
-            $id = isset($_GET['id']) ? $_GET['id'] : null;
-            ?>
-					<center><a href = "reservation.php?id=<?php echo $id; ?>" class = "btn btn-success"><i class = "glphyicon glyphicon-check"></i> Back to reservation</a></center>
+				<div class = "col-md-4">	
+					<form method = "POST" enctype = "multipart/form-data">
+					<div class = "form-group">
+							<label>Cuisine Name </label>
+							<textarea class="form-control" name = "cuisine_name" rows="2"></textarea>
+						</div>
+						<div class = "form-group">
+							<label>Description </label>
+							<textarea class="form-control" name = "descr" rows="2"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Location</label>
+							<input type="text" class="form-control" name="location" />
+						</div>
+						<div class = "form-group">
+							<label>Photo </label>
+							
+							<input type = "file" required = "required" id = "photo" name = "photo" />
+						</div>
+						<br />
+						<br />
+						<div class = "form-group">
+							<button name = "add_cuisine" class = "btn btn-info form-control"><i class = "glyphicon glyphicon-save"></i> Saved</button>
+						</div>
+					</form>
+					<?php require_once '../admin_query/add_query_cuisine.php'?>
 				</div>
-				<div class = "col-md-4"></div>
 			</div>
 		</div>
 	</div>
@@ -105,14 +140,26 @@
             </div>
         </footer>
         <!-- end of footer -->
+    
 </body>
-<script type = "text/javascript" >  
-  history.pushState(null, document.title, location.href);
-    history.back();
-    history.forward();
-    window.onpopstate = function () {
-        history.go(1);
-    };
-    </script>
-
+<script type = "text/javascript">
+	$(document).ready(function(){
+		$("#photo").change(function(){
+			$("#lbl").remove();
+			var files = !!this.files ? this.files : [];
+			if(!files.length || !window.FileReader){
+				$("#image").remove();
+				$lbl.appendTo("#preview");
+			}
+			if(/^image/.test(files[0].type)){
+				var reader = new FileReader();
+				reader.readAsDataURL(files[0]);
+				reader.onloadend = function(){
+					$pic.appendTo("#preview");
+					$("#image").attr("src", this.result);
+				}
+			}
+		});
+	});
+</script>
 </html>

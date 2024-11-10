@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Casa's Transient House</title>
+        <title>Taysan Web System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"  type="text/css" href="css/style_homepage.css">
         
