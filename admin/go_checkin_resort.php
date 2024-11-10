@@ -10,6 +10,7 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
 		<link rel = "stylesheet" type = "text/css" href = "../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../sendemail/css/bootstrap.css"/>
 		<link rel="stylesheet"  type="text/css" href="../css/css_footer.css">
 	</head>
 <body>
@@ -31,11 +32,12 @@
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li  class = "active"><a href = "reserve.php">Hotel Booking</a></li>
-			<li><a href = "reserve_resort.php">Resort Booking</a></li>
-			<li ><a href = "room.php">Booking</a></li>				
+			<li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li class="active"><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li ><a href = "room.php">Booking</a></li>			
 		</ul>	
 	</div>
+	
 	<br />
 	<div class = "container-fluid">	
 		<div class = "panel panel-default">
@@ -51,47 +53,52 @@
 			?>
 			<div class = "panel-body">
 	
-				<a class = "btn btn-info" href="reserve_booking_resort.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
-				<a class = "btn btn-info" href="reserve1_booking_resort.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
-				<a class = "btn btn-info" href = "checkin_booking_resort.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
-				<a class = "btn btn-warning" href = "checkout_booking_resort.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
+				<a class = "btn btn-info disabled" href="reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Pendings</a>
+				<a class = "btn btn-info" href="reserve1.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
+				<a class = "btn btn-info disabled" href = "checkin.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
+				<a class = "btn btn-info disabled" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
 				<br />
 				<br />
+			
+				<br />
+				
+				<br />
+				
+				
+ 
 				<table id = "table" class = "table table-bordered">
 					<thead>
 						<tr>
-						<th>Name</th>
-							<th>Contact Number</th>
+							<th>Name</th>
+							<th>Contact No</th>
+							<th>Email</th>
 							<th>Resort Name</th>
-							
-							<th>Check In</th>
-							<th>Days</th>
-							<th>Check Out</th>
+						
+							<th>Reserved Date</th>
 							<th>Status</th>
-							<th>Bill</th>
-							<th></th>
+							<th>Action</th>
 						</tr>
+						
 					</thead>
 					<tbody>
 						<?php
-							$query = $conn->query("SELECT * FROM `transactionresort` NATURAL JOIN `guest` NATURAL JOIN `resort` WHERE `status` = 'Check Out'") or die(mysqli_query());
+							$query = $conn->query("SELECT * FROM `transactionresort` NATURAL JOIN `guest` NATURAL JOIN `resort` WHERE `status` = 'Pending'") or die(mysqli_error());
 							while($fetch = $query->fetch_array()){
 						?>
 						<tr>
-						<td><?php echo $fetch['name']?></td>
+							<td><?php echo $fetch['name']?></td>
 							<td><?php echo $fetch['contactno']?></td>
+							<td><?php echo $fetch['email']?></td>
 							<td><?php echo $fetch['resort_name']?></td>
-							<td><?php echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>"." @ "."<label>".date("h:i a", strtotime($fetch['checkin_time']))."</label>"?></td>
-							<td><?php echo $fetch['days']?></td>
-							<td><?php echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']."+".$fetch['days']."DAYS"))."</label>"." @ "."<label>".date("h:i A", strtotime($fetch['checkout_time']))."</label>"?></td>
-							<td><?php echo $fetch['status']?></td>
 							
-							<td><?php echo "Php. ".$fetch['bill'].".00"?></td>
-							<td><label class = "">Paid</label></td>
+							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
+							<td><?php echo $fetch['status']?></td>
+							<td><center><a class = "btn btn-success" href = "../admin_query/confirm_query_reserve_resort.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Reserve</a>
 						</tr>
 						<?php
 							}
 						?>
+				
 					</tbody>
 				</table>
 			</div>
@@ -166,6 +173,7 @@
         </footer>
         <!-- end of footer -->
     
+    
 </body>
 <script src = "../js/jquery.js"></script>
 <script src = "../js/jquery.dataTables.js"></script>
@@ -175,5 +183,13 @@
 		$("#table").DataTable();
 	});
 </script>
+<script type = "text/javascript">
+	function confirmationDelete(anchor){
+		var conf = confirm("Are you sure you want to delete this record?");
+		if(conf){
+			window.location = anchor.attr("href");
+		}
+	} 
 </script>
+	
 </html>

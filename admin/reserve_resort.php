@@ -43,13 +43,13 @@
 	<div class = "container-fluid">	
 		<div class = "panel panel-default">
 			<?php
-				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Pending'") or die(mysqli_error());
+				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Pending'") or die(mysqli_error());
 				$f_p = $q_p->fetch_array();
-				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Reserved'") or die(mysqli_error());
+				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Reserved'") or die(mysqli_error());
 				$f_c = $q_c->fetch_array();
-				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check In'") or die(mysqli_error());
+				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check In'") or die(mysqli_error());
 				$f_ci = $q_ci->fetch_array();
-				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
+				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check Out'") or die(mysqli_error());
 				$f_cw = $q_cw->fetch_array();
 			?>
 			<div class = "panel-body">
@@ -91,7 +91,7 @@
                             <td><?php echo $fetch['resort_name']?></td>
 							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
 							<td><?php echo $fetch['status']?></td>
-							<td><center><a class = "btn btn-success" href = "sendtoemail.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Confirm</a> <a class = "btn btn-danger" href = "sendtoemail_discard.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Discard</a>
+							<td><center><a class = "btn btn-success" href = "sendtoemailresort.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Confirm</a> <a class = "btn btn-danger" href = "sendtoemail_discard.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Discard</a>
 						</tr>
 						<?php
 							}

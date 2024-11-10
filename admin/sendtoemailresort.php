@@ -32,8 +32,8 @@
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li class="active"><a href = "reserve.php">Hotel Booking</a></li>
-			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li class="active"><a href = "reserve_resort.php">Resort Booking</a></li>
 			<li ><a href = "room.php">Booking</a></li>		
 		</ul>	
 	</div>
@@ -43,12 +43,12 @@
 			<div class = "panel-body">
 				<div class = "alert alert-info">Booking Information</div>
 				<?php
-					$query = $conn->query("SELECT * FROM `transaction` NATURAL JOIN `guest` NATURAL JOIN `room` WHERE `transaction_id` = '$_REQUEST[transaction_id]'") or die(mysqli_error());
+					$query = $conn->query("SELECT * FROM `transactionresort` NATURAL JOIN `guest` NATURAL JOIN `resort` WHERE `transaction_id` = '$_REQUEST[transaction_id]'") or die(mysqli_error());
 					$fetch = $query->fetch_array();
 				?>
 				
 				<br />
-				<form method = "POST" enctype = "multipart/form-data" action = "../admin_query/save_form.php?transaction_id=<?php echo $fetch['transaction_id']?>">
+				<form method = "" >
 			
 					<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Name</label>
@@ -63,17 +63,11 @@
 					<br style = "clear:both;"/>
 					<br />
 					<div class = "form-inline" style = "float:left; margin-left:20px;">
-						<label>Hotel Name</label>
+						<label>Resort Name</label>
 						<br />
-						<input type = "text" value = "<?php echo $fetch['hotel_name']?>" class = "form-control" size = "30" disabled = "disabled"/>
+						<input type = "text" value = "<?php echo $fetch['resort_name']?>" class = "form-control" size = "30" disabled = "disabled"/>
 					</div>
-					
-					<div class = "form-inline" style = "float:left; margin-left:20px;">
-						<label>Room Type</label>
-						<br />
-						<input type = "text" value = "<?php echo $fetch['room_type']?>" class = "form-control" size = "10" disabled = "disabled"/>
-						
-					</div>
+				
 					<div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Reserved Date</label>
 						<br />
@@ -84,7 +78,7 @@
 						<br />
 						<input type = "number" min = "0" max = "99" name = "days" value = "<?php echo $fetch['days']?>" class = "form-control" disabled = "disabled"/>
 					</div>
-					<div class = "form-inline" style = "float:left; margin-left:20px;">
+                    <div class = "form-inline" style = "float:left; margin-left:20px;">
 						<label>Bill</label>
 						<br />
 						<input type = "text" value = "<?php echo $fetch['bill']?>" class = "form-control" size = "15" disabled = "disabled"/>
@@ -104,7 +98,7 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			
-			<form method="POST" action="send_email.php">
+			<form method="POST" action="send_email_resort.php">
 				<div class="form-group">
 					<label>Email:</label>
 					<input type="email" class="form-control" name="email" value = "<?php echo $fetch['email']?>"required="required"/>
@@ -119,8 +113,7 @@
 					echo "Dear Customer,\n\n";
 					echo "Thank you for choosing our services. Below are the details of your reservation:\n\n";
 					echo "Name: " . $fetch['name'] . "\n";
-					echo "Hotel Name: " . $fetch['hotel_name'] . "\n";
-					echo "Room Type: " . $fetch['room_type'] . "\n";
+					echo "Hotel Name: " . $fetch['resort_name'] . "\n";
 					echo "Reserved Date: " . $fetch['checkin'] . "\n";
 					echo "Number of Days: " . $fetch['days'] . "\n";
 					echo "Total Bill: " . $fetch['bill'] . "\n\n";

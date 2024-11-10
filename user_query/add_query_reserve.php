@@ -4,6 +4,7 @@ require_once 'connection/connect.php';
 if (isset($_POST['add_guest'])) {
     $id = $_POST['id'];
     $hotel_name= $_POST['hotel_name'];
+    $room_number= $_POST['room_number'];
     $name = $_POST['name'];
     $address = $_POST['address'];
     $contactno = $_POST['contactno'];
@@ -34,7 +35,7 @@ if (isset($_POST['add_guest'])) {
             
 
             // Insert transaction with total bill
-            $conn->query("INSERT INTO `transaction` (id, guest_id, hotel_name, room_id, status, checkin, days,bill) VALUES ('$id', '$guest_id', '$hotel_name', '$room_id', 'Pending', '$checkin', '$days', '$bill')") or die(mysqli_error($conn));
+            $conn->query("INSERT INTO `transaction` (id, guest_id, hotel_name,room_number, room_id, status, checkin, days,bill) VALUES ('$id', '$guest_id', '$hotel_name', '$room_number',  '$room_id', 'Pending', '$checkin', '$days', '$bill')") or die(mysqli_error($conn));
 
             // Redirect to the reply page after successful insertion
             

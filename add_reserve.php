@@ -27,17 +27,20 @@
 					$query = $conn->query("SELECT * FROM `room` WHERE `room_id` = '$_REQUEST[room_id]'") or die(mysql_error());
 					$fetch = $query->fetch_array();
 				?>
-				<div style = "height:300px; width:800px;">
-					<div style = "float:left;">
-						<img src = "photo/<?php echo $fetch['photo']?>" height = "300px" width = "400px">
-					</div>
-					<div style = "float:left; margin-left:10px;">
-					<h3><?php echo $fetch['hotel_name']?></h3>
-						<h3><?php echo $fetch['room_type']?></h3>
-						<h5><?php echo $fetch['descr']?></h5>
-						<h3 style = "color:#00ff00;"><?php echo "Php. ".$fetch['price'].".00";?></h3>
-					</div>
+				<div style="height: 300px; width: 800px; display: flex; align-items: center; justify-content: space-between;">
+				<div style="height: 300px; width: 800px; display: flex; align-items: center; justify-content: space-between;">
+				<div style="flex: 1; max-width: 400px;">
+					<img src="photo/<?php echo $fetch['photo']?>" style="height: 300px; width: 100%; object-fit: cover;">
 				</div>
+				<div style="flex: 1; margin-left: 10px;">
+					<h4 style="margin: 0;">Hotel Name: <?php echo $fetch['hotel_name']?></h4>
+					<h5 style="margin: 5px 0;">Room Number: <?php echo $fetch['room_number']?></h5>
+					<h5 style="margin: 5px 0;">Room Type: <?php echo $fetch['room_type']?></h5>
+					<h5 style="margin: 5px 0;">Description: <?php echo $fetch['descr']?></h5>
+					<h5 style="color: #00ff00; margin: 5px 0;">Price: Php. <?php echo $fetch['price'].".00";?></h5>
+				</div>
+			</div>
+
 				<br style = "clear:both;" />
 				<div class = "well col-md-4">
 						
@@ -46,19 +49,23 @@
 						$user_id = isset($_GET['id']) ? $_GET['id'] : null;
 						?>
 					<form method = "POST" enctype = "multipart/form-data">
-					<?php 
-					require_once 'connection/connect.php';
-					$query = $conn->query("SELECT * FROM `room` WHERE `room_id` = '$_REQUEST[room_id]'") or die(mysql_error());
-					$fetch = $query->fetch_array();
-				?>
+							<?php 
+							require_once 'connection/connect.php';
+							$query = $conn->query("SELECT * FROM `room` WHERE `room_id` = '$_REQUEST[room_id]'") or die(mysql_error());
+							$fetch = $query->fetch_array();
+						?>
+						<div class = "form-group">
+							<!-- <label>address</label> -->
+							<input type = "hidden" class = "form-control"  value="<?php echo $fetch['room_number']?>" name = "room_number" required = "required" />
+						</div>
 					<input type="hidden" name="hotel_name" value="<?php echo $fetch['hotel_name']?>" />
 					<input type="hidden" name="id" value="<?php echo htmlspecialchars($user_id); ?>" />
 					<div class = "form-group">
-					<?php 
-							require_once 'connection/connect.php';
-							$query = $conn->query("SELECT * FROM `users` WHERE `id` = '$_REQUEST[id]'") or die(mysql_error());
-							$fetch = $query->fetch_array();
-						?>
+						<?php 
+								require_once 'connection/connect.php';
+								$query = $conn->query("SELECT * FROM `users` WHERE `id` = '$_REQUEST[id]'") or die(mysql_error());
+								$fetch = $query->fetch_array();
+							?>
 							<!-- <label>Name</label> -->
 							<input type = "hidden" class = "form-control" value="<?php echo $fetch['name']?>"  name = "name" required = "required" />
 						</div>
@@ -66,6 +73,7 @@
 							<!-- <label>address</label> -->
 							<input type = "hidden" class = "form-control"  value="<?php echo $fetch['address']?>" name = "address" required = "required" />
 						</div>
+					
 						<div class = "form-group">
 							<!-- <label>contact number</label> -->
 							<input type = "hidden" class = "form-control" value="<?php echo $fetch['contactno']?>" name = "contactno" required = "required" />
@@ -79,18 +87,15 @@
 							<input type = "date" class = "form-control" name = "date" required = "required" />
 						</div>
 						<?php 
-					require_once 'connection/connect.php';
-					$query = $conn->query("SELECT * FROM `room` WHERE `room_id` = '$_REQUEST[room_id]'") or die(mysql_error());
-					$fetch = $query->fetch_array();
-				?>
+							require_once 'connection/connect.php';
+							$query = $conn->query("SELECT * FROM `room` WHERE `room_id` = '$_REQUEST[room_id]'") or die(mysql_error());
+							$fetch = $query->fetch_array();
+						?>
 						
 						<div class="form-inline" style="float:left; margin-left:20px;">
 						<label>Days</label>
 						<input type="number" min="0" max="99" id="days" name="days" class="form-control" required="required" oninput="calculateTotal()"/>
 					</div>
-			
-			
-						<br />
 						<br />
 						<div class="form-group">
 						<label>Total payment</label>

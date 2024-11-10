@@ -31,8 +31,8 @@
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-		    <li  class = "active"><a href = "reserve.php">Hotel Booking</a></li>
-			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+		    <li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li class = "active"><a href = "reserve_resort.php">Resort Booking</a></li>
 			<li ><a href = "room.php">Booking</a></li>			
 		</ul>	
 	</div>
@@ -40,55 +40,57 @@
 	<div class = "container-fluid">	
 		<div class = "panel panel-default">
 			<?php
-				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Pending'") or die(mysqli_error());
+				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Pending'") or die(mysqli_error());
 				$f_p = $q_p->fetch_array();
-				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Reserved'") or die(mysqli_error());
+				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Reserved'") or die(mysqli_error());
 				$f_c = $q_c->fetch_array();
-				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check In'") or die(mysqli_error());
+				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check In'") or die(mysqli_error());
 				$f_ci = $q_ci->fetch_array();
-				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
+				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check Out'") or die(mysqli_error());
 				$f_cw = $q_cw->fetch_array();
 				
 			?>
 			<div class = "panel-body">
-			
-				<a class = "btn btn-success" href = "reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
-				<a class = "btn btn-info" href="reserve1.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
-				<a class = "btn btn-info disabled"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
-				<a class = "btn btn-warning" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
+				<a class = "btn btn-info" href="reserve_booking_resort.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
+				<a class = "btn btn-info" href="reserve1_booking_resort.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
+				<a class = "btn btn-info" href = "checkin_booking_resort.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
+				<a class = "btn btn-warning" href = "checkout_booking_resort.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
 				<br />
 				<br />
 				<table id = "table" class = "table table-bordered">
 					<thead>
 						<tr>
 							<th>Name</th>
-							<th>Room Type</th>
-							<th>Room no</th>
+							<th>Contact Number</th>
+							<th>Resort Name</th>
+							
 							<th>Check In</th>
 							<th>Days</th>
 							<th>Check Out</th>
-							<th>Status</th>
 			
+							<th>Status</th>
 							<th>Bill</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
-							$query = $conn->query("SELECT * FROM `transaction` NATURAL JOIN `guest` NATURAL JOIN `room` WHERE `status` = 'Check In'") or die(mysqli_query());
+							$query = $conn->query("SELECT * FROM `transactionresort` NATURAL JOIN `guest` NATURAL JOIN `resort` WHERE `status` = 'Check In'") or die(mysqli_query());
 							while($fetch = $query->fetch_array()){
 						?>
 						<tr>
-							<td><?php echo $fetch['firstname']." ".$fetch['lastname']?></td>
-							<td><?php echo $fetch['room_type']?></td>
-							<td><?php echo $fetch['room_no']?></td>
+							<td><?php echo $fetch['name']?></td>
+							<td><?php echo $fetch['contactno']?></td>
+							<td><?php echo $fetch['resort_name']?></td>
+						
 							<td><?php echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>"." @ "."<label>".date("h:i a", strtotime($fetch['checkin_time']))."</label>"?></td>
 							<td><?php echo $fetch['days']?></td>
-							<td><?php echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']."+".$fetch['days']."DAYS"))."</label>"?></td>
+							<td><?php echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']."+".$fetch['days']."DAYS"))."</label>"." @ "."<label>".date("h:i A", strtotime($fetch['checkout_time']))."</label>"?></td>
 							<td><?php echo $fetch['status']?></td>
 							
 							<td><?php echo "Php. ".$fetch['bill'].".00"?></td>
-							<td><center><a class = "btn btn-warning" href = "../admin_query/checkout_query.php?transaction_id=<?php echo $fetch['transaction_id']?>" onclick = "confirmationCheckin(); return false;"></i> Check Out</a></center></td>
+							<td><center><a class = "btn btn-warning" href = "../admin_query/checkout_query_resort.php?transaction_id=<?php echo $fetch['transaction_id']?>" onclick = "confirmationCheckin(); return false;"></i> Check Out</a></center></td>
+						
 						</tr>
 						<?php
 							}

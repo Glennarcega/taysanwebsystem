@@ -45,21 +45,21 @@
 	<div class = "container-fluid">	
 		<div class = "panel panel-default">
 			<?php
-				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Pending'") or die(mysqli_error());
+				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Pending'") or die(mysqli_error());
 				$f_p = $q_p->fetch_array();
-				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Reserved'") or die(mysqli_error());
+				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Reserved'") or die(mysqli_error());
 				$f_c = $q_c->fetch_array();
-				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check In'") or die(mysqli_error());
+				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check In'") or die(mysqli_error());
 				$f_ci = $q_ci->fetch_array();
-				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
+				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check Out'") or die(mysqli_error());
 				$f_cw = $q_cw->fetch_array();
 			?>
 			<div class = "panel-body">
 	
-				<a class = "btn btn-info" href="reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
-				<a class = "btn btn-info" href="reserve1.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
-				<a class = "btn btn-info" href = "checkin.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
-				<a class = "btn btn-warning" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
+		    	<a class = "btn btn-info" href="reserve_booking_resort.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
+				<a class = "btn btn-info" href="reserve1_booking_resort.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
+				<a class = "btn btn-info" href = "checkin_booking_resort.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
+				<a class = "btn btn-warning" href = "checkout_booking_resort.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
 				<br />
 				<br />
 			
