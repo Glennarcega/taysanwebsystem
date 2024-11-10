@@ -13,7 +13,7 @@
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-		    	<a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
+				<a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			
 		</div>

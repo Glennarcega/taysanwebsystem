@@ -8,6 +8,8 @@
 		$photo_size = getimagesize($_FILES['photo']['tmp_name']);
 		move_uploaded_file($_FILES['photo']['tmp_name'],"../photo/" . $_FILES['photo']['name']);
 		$conn->query("INSERT INTO `cuisine` (cuisine_name, location, descr, photo) VALUES('$cuisine_name','$location','$descr', '$photo_name')") or die(mysqli_error());
-		header("location:cuisine.php");
+	//	header("location:cuisine.php");
+		echo "<script>alert('Add Cuisine successfully!'); window.location.href = 'cuisine.php';</script>";
+
 	}
 ?>

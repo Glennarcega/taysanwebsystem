@@ -16,7 +16,7 @@
         <header class = "header" id = "header">
             <div class = "head-top">
                 <div class = "site-name">
-                    <span>Casa's Transient House</span>
+                    <span>Taysan Web System</span>
                 </div>
                 <div class = "site-nav">
                     <span id = "nav-btn">MENU <i class = "fas fa-bars"></i></span>

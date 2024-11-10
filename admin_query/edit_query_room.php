@@ -11,6 +11,7 @@
 		$photo_size = getimagesize($_FILES['photo']['tmp_name']);
 		move_uploaded_file($_FILES['photo']['tmp_name'],"../photo/" . $_FILES['photo']['name']);
 		$conn->query("UPDATE `room` SET `hotel_name` = '$hotel_name',`room_type` = '$room_type', `room_number` = '$room_number', `price` = '$price',`descr` = '$descr', `photo` = '$photo_name' WHERE `room_id` = '$_REQUEST[room_id]'") or die(mysqli_error());
-		header("location:../admin/room.php");
+		echo "<script>alert('Update successfully!'); window.location.href = '../admin/room.php';</script>";
+
 	}
 ?>

@@ -170,7 +170,7 @@
 							<td><?php echo $fetch['location']?></td>
 							<td><?php echo $fetch['descr']?></td>
 							<td><center><img src = "../photo/<?php echo $fetch['photo']?>" height = "50" width = "50"/></center></td>
-							<td><center><a class = "btn btn-warning" href = "edit_cuisine.php?cuisine_id=<?php echo $fetch['cuisine_id']?>"></i> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "../admin_query/delete_cuisine.php?room_id=<?php echo $fetch['cuisine_id']?>"> Delete</a></center></td>
+							<td><center><a class = "btn btn-warning" href = "edit_cuisine.php?cuisine_id=<?php echo $fetch['cuisine_id']?>"></i> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "../admin_query/delete_cuisine.php?cuisine_id=<?php echo $fetch['cuisine_id']?>"> Delete</a></center></td>
 						</tr>
 					<?php
 						}

@@ -5,7 +5,7 @@
 ?>
 <html lang = "en">
 	<head>
-		<title>Casa's Transient House</title>
+		<title>Taysan Web System</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
@@ -17,7 +17,7 @@
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>
+			<a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			<ul class = "nav navbar-nav pull-right ">
 				<li class = "dropdown">
@@ -41,24 +41,9 @@
 	<br />
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
-		<?php
-				$q_c = $conn->query("SELECT COUNT(*) as total FROM `users`") or die(mysqli_error());
-				$f_c = $q_c->fetch_array();
-				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Pending'") or die(mysqli_error());
-				$f_p = $q_p->fetch_array();
-				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check In'") or die(mysqli_error());
-				$f_ci = $q_ci->fetch_array();
-				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
-				$f_cw = $q_cw->fetch_array();
-				
-			?>
+		
 		<div class = "panel-body">
-		<a class = "btn btn-primary btn-lg" style="height:200px" style="width:300px" href = "registered_user.php"><span class = "badge"><?php echo $f_c['total']?></span> Registered Accounts</a>
-				<a class = "btn btn-primary btn-lg" style="height:200px" style="width:300px" href = "reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Pendings</a>
-				<a class = "btn btn-primary btn-lg"style="height:200px" style="width:300px" href = "checkin.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
-				<a class = "btn btn-primary btn-lg"style="height:200px" style="width:300px" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
-				<br />
-				<br />
+		
 				
 			</div>
 		</div>

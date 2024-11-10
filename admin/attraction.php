@@ -17,7 +17,7 @@
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>		
+			<a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			<ul class = "nav navbar-nav pull-right ">
 				<li class = "dropdown">

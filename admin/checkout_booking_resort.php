@@ -5,7 +5,7 @@
 ?>
 <html lang = "en">
 	<head>
-		<title>Casa's Transient House</title>
+		<title>Taysan Web System</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
@@ -16,7 +16,7 @@
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
 		<div  class = "container-fluid">
 			<div class = "navbar-header">
-				<a class = "navbar-brand" >Casa's Transient House Online Reservation</a>
+			<a class = "navbar-brand" >Taysan: Where Potential Blossoms, and Tourism Thrives</a>
 			</div>
 			<ul class = "nav navbar-nav pull-right ">
 				<li class = "dropdown">
@@ -31,8 +31,8 @@
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li  class = "active"><a href = "reserve.php">Hotel Booking</a></li>
-			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li  class = ""><a href = "reserve.php">Hotel Booking</a></li>
+			<li class = "active"><a href = "reserve_resort.php">Resort Booking</a></li>
 			<li ><a href = "room.php">Booking</a></li>				
 		</ul>	
 	</div>

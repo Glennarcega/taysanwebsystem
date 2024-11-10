@@ -10,6 +10,8 @@
 		$photo_size = getimagesize($_FILES['photo']['tmp_name']);
 		move_uploaded_file($_FILES['photo']['tmp_name'],"../photo/" . $_FILES['photo']['name']);
 		$conn->query("INSERT INTO `room` (hotel_name, room_type, room_number, price,descr, photo) VALUES('$hotel_name','$room_type', '$room_number', '$price','$descr', '$photo_name')") or die(mysqli_error());
-		header("location:room.php");
+		//header("location:room.php");
+		echo "<script>alert('Add Room Successfully!'); window.location.href = 'room.php';</script>";
+
 	}
 ?>

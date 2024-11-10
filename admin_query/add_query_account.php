@@ -10,7 +10,9 @@
 			echo "<center><label style = 'color:red;'>Username already taken</center></label>";
 		}else{
 			$conn->query("INSERT INTO `admin` (name, username, password) VALUES('$name', '$username', '$password')") or die(mysqli_error());
-			header("location:account.php");
+			//header("location:account.php");
+			echo "<script>alert('Add Account Successfully!'); window.location.href = 'account.php';</script>";
+
 		}
 	}
 ?>

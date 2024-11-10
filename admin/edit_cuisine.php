@@ -31,38 +31,50 @@
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
 			<li><a href = "account.php">Accounts</a></li>
-			<li><a href = "reserve.php">Reservation</a></li>
-			<li><a href = "room.php">Booking</a></li>			
+			<li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li class = "active"><a href = "room.php">Booking</a></li>				
 		</ul>	
 	</div>
 	<br />
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				<div class = "alert alert-info">Transaction / Room / Add Room</div>
+				<div class = "alert alert-info">Edit Cuisine Details</div>
 				<br />
-				<div class = "col-md-4">	
+				<div class = "col-md-4">
+					<?php
+						$query = $conn->query("SELECT * FROM `cuisine` WHERE `cuisine_id` = '$_REQUEST[cuisine_id]'") or die(mysqli_error());
+						$fetch = $query->fetch_array();
+					?>
+				
 					<form method = "POST" enctype = "multipart/form-data">
-                    <div class = "form-group">
-							<label>Attraction Name </label>
-							<textarea class="form-control" name = "attraction_name" rows="2"></textarea>
+						<div class="form-group">
+								<label>Cuisine Name</label>
+								<input type="text" class="form-control" value = "<?php echo $fetch['cuisine_name']?>"  name = "cuisine_name" required/>
+							</div>	
+							<div class="form-group">
+								<label>Description</label>
+								<input type="text" class="form-control" value = "<?php echo $fetch['descr']?>"  name = "descr" required/>
+							</div>
+						<div class="form-group">
+							<label>Location</label>
+							<input type="text" class="form-control" value = "<?php echo $fetch['location']?>"  name = "location" />
 						</div>
-						<div class = "form-group">
-							<label>Description </label>
-							<textarea class="form-control" name = "descr" rows="3"></textarea>
-						</div>
+
 						<div class = "form-group">
 							<label>Photo </label>
 							
-							<input type = "file" required = "required" id = "photo" name = "photo" />
+							<input type = "file" required = "required" id = "photo" name = "photo"  required/>
 						</div>
-						<br />
+
+
 						<br />
 						<div class = "form-group">
-							<button name = "add_attraction" class = "btn btn-info form-control"><i class = "glyphicon glyphicon-save"></i> Saved</button>
+							<button name = "edit_cuisine" class = "btn btn-warning form-control"><i class = "glyphicon glyphicon-edit"></i> Save Changes</button>
 						</div>
 					</form>
-					<?php require_once '../admin_query/add_query_attraction.php'?>
+					<?php require_once '../admin_query/edit_query_cuisine.php'?>
 				</div>
 			</div>
 		</div>
@@ -135,7 +147,6 @@
             </div>
         </footer>
         <!-- end of footer -->
-    
 </body>
 <script type = "text/javascript">
 	$(document).ready(function(){
