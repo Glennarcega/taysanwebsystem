@@ -67,28 +67,12 @@
                             <h5 style="font-size: 1.4rem; margin-bottom: 5px; font-weight: bold; color: black;">Room Number: <?php echo $fetch['room_number']; ?></h5>
                             <h4 style="font-size: 2rem; color: #0000ff;"><?php echo "Price: Php. ".$fetch['price'].".00"; ?></h4>
                             <h4 style="font-size: 2rem; color: #555; margin-bottom: 15px;"><?php echo $fetch['descr']; ?></h4>
-                            <?php
-// Assuming $fetch is the result of your database query
-if (isset($fetch['status'])) {
-    $status = $fetch['status'];
-} else {
-    // Handle the case when the status is not found, maybe set a default value
-    $status = ''; // or any default value like 'Unavailable' if status is missing
-}
-?>
-
-<button 
-    <?php if ($status == 'Reserved' || $status == 'Check In'): ?> 
-        disabled 
-    <?php endif; ?>
-    onclick="window.location.href = 'add_reserve.php?room_id=<?php echo $fetch['room_id']; ?>&id=<?php echo $id; ?>';"
-    style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: <?php echo ($status == 'Reserved' || $status == 'Check In') ? 'not-allowed' : 'pointer'; ?>; transition: all 0.3s ease;"
-    onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
-    onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
-    <img src="image/next.png" alt="Reserve Button" style="width: 20px; height: 20px;">
-</button>
-
-
+                            <button onclick="window.location.href = 'add_reserve.php?room_id=<?php echo $fetch['room_id']; ?>&id=<?php echo $id; ?>';
+" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                                    onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
+                                    onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
+                                <img src="image/next.png" alt="Reserve Button" style="width: 20px; height: 20px;">
+                            </button>
                         </div>
                     </div>
                 <?php
