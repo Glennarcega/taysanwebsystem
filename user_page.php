@@ -14,8 +14,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+<title>Tinindag Festivals</title>
 	<link rel="stylesheet" type="text/css" href="css/style_login.css">
+    
 </head>
 <body>
 
@@ -37,9 +38,9 @@
 
   <!-- logged in user information -->
 <?php  if (isset($_SESSION['username'])) : ?>
-    <h1 style="text-align: center;">Welcome <strong></h1>
+    <h2 style="text-align: center;">Welcome <strong></h2>
     <br>
-    <h3 style="text-align: center;"><?php echo $_SESSION['username']; ?></h3>
+    <h1 style="text-align: center;"><?php echo $_SESSION['username']; ?></h1>
 
     <?php
         // Get the ID from the URL

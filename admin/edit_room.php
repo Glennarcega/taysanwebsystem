@@ -5,12 +5,11 @@
 ?>
 <html lang = "en">
 	<head>
-		<title>Taysan Web System</title>
+	<title>Tinindag Festivals</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
 		<link rel = "stylesheet" type = "text/css" href = "../css/style.css" />
-		<link rel="stylesheet"  type="text/css" href="../css/css_footer.css">
 	</head>
 <body>
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
@@ -40,7 +39,7 @@
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				<div class = "alert alert-info">Transaction / Room / Change Room</div>
+				<div class = "alert alert-info">Edit Room Details</div>
 				<br />
 				<div class = "col-md-4">
 					<?php
@@ -70,6 +69,17 @@
 							<textarea class="form-control" name="descr" rows="3"><?php echo htmlspecialchars($fetch['descr']); ?></textarea>
 						</div>
 
+						<div class="form-group">
+							<label>Location</label>
+							<textarea class="form-control" name="location" rows="2"><?php echo htmlspecialchars($fetch['location']); ?></textarea>
+						</div>
+						<div class="form-group">
+							<label>Transportation</label>
+							<textarea class="form-control" name="transportation" rows="2"><?php echo htmlspecialchars($fetch['transportation']); ?></textarea>
+						</div>
+
+
+
 						<div class = "form-group">
 							<label>Photo </label>
 							
@@ -87,74 +97,7 @@
 			</div>
 		</div>
 	</div>
-	<br />
-	<br />
-	<footer class = "footer">
-            <div class = "footer-container">
-                <div>
-                    <h2>About Us </h2>
-					<p>This web-based reservation system that makes it easier for customers to pair up with Casa's Transient House.
-						They will capable of choosing rooms that fit within their budget.They will aslo discover wether there are any more rooms available or not.
-					</p>
-                    <ul class = "social-icons">
-                        <li class = "flex">
-                            <i class = "fa fa-twitter fa-2x"></i>
-                        </li>
-                        <li class = "flex">
-                            <i class = "fa fa-facebook fa-2x"></i>
-                        </li>
-                        <li class = "flex">
-                            <i class = "fa fa-instagram fa-2x"></i>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2>Useful Links</h2>
-                    <a href = "#">Blog</a>
-                    <a href = "#">Rooms</a>
-                    <a href = "#">Subscription</a>
-                    <a href = "#">Gift Card</a>
-                </div>
-
-                <div>
-                    <h2>Privacy</h2>
-                    <a href = "#">Career</a>
-                    <a href = "#">About Us</a>
-                    <a href = "#">Contact Us</a>
-                    <a href = "#">Services</a>
-                </div>
-
-                <div>
-                    <h2>Have A Question</h2>
-                    <div class = "contact-item">
-                        <span>
-                            <i class = "fas fa-map-marker-alt"></i>
-                        </span>
-                        <span>
-                             Maricaban, Tingloy, Batagas
-                        </span>
-                    </div>
-                    <div class = "contact-item">
-                        <span>
-                            <i class = "fas fa-phone-alt"></i>
-                        </span>
-                        <span>
-                            +1234 567 89
-                        </span>
-                    </div>
-                    <div class = "contact-item">
-                        <span>
-                            <i class = "fas fa-envelope"></i>
-                        </span>
-                        <span>
-                            casastransienthouse@gmail.com
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- end of footer -->
+	
 </body>
 <script type = "text/javascript">
 	$(document).ready(function(){

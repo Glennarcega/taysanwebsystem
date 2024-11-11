@@ -2,12 +2,12 @@
 
 <html lang = "en">
 	<head>
-		<title>Taysan Wen System</title>
+	<title>Tinindag Festivals</title>
 		<meta charset = "utf-8" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css " />
-		<link rel = "stylesheet" type = "text/css" href = "css/style.css" />
-		<link rel="stylesheet"  type="text/css" href="css/home_user.css">
+		<link rel = "stylesheet" type = "text/css" href = "css/style.css" />	
+
 	</head>
 <body>
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
@@ -46,7 +46,7 @@
         <!-- end of header -->
 		  <!-- body content  -->
 		  <section class = "services sec-width" id = "services">
-		  <div class="title">
+		  <div class="title" style="font-family: 'Montserrat', sans-serif;">
 			<h4 style="color: black;">Make Reservation</h4>
 		</div>
 
@@ -67,17 +67,21 @@
 						onmouseout="this.style.transform='scale(1)';">
 				</div>
 				
-				<div style="flex: 1; padding: 10px; margin-left: 10px;">
-				<h3 style="margin: 0; font-size: 1.5rem; color: #333;">
-					Resort Name: <?php echo htmlspecialchars($fetch['resort_name']); ?>
-				</h3>
-				<h5 style="margin: 5px 0; color: #666;">
-					Description: <?php echo htmlspecialchars($fetch['descr']); ?>
-				</h5>
-				<h3 style="color: #00ff00; font-size: 1.5rem;">
-					Price: Php. <?php echo number_format($fetch['price'], 2, '.', ','); ?>
-				</h3>
-			</div>
+				<div style="flex: 1; padding: 10px; margin-left: 10px; font-family: 'Futura', sans-serif;">
+					<h3 style="margin: 0; font-size: 1.5rem; color: #333; font-family: 'Futura', sans-serif;">
+						Resort Name: <?php echo htmlspecialchars($fetch['resort_name']); ?>
+					</h3>
+					<h5 style="margin: 5px 0; color: #666; font-family: 'Futura', sans-serif;">
+						Description: <?php echo htmlspecialchars($fetch['descr']); ?>
+					</h5>
+					<h5 style="margin: 5px 0; color: #666; font-family: 'Futura', sans-serif;">
+						Location: <?php echo htmlspecialchars($fetch['location']); ?>
+					</h5>
+					<h3 style="color: #00ff00; font-size: 1.5rem; font-family: 'Futura', sans-serif;">
+						Price: Php. <?php echo number_format($fetch['price'], 2, '.', ','); ?>
+					</h3>
+				</div>
+
 
 				
 				</div>

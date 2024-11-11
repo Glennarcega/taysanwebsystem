@@ -7,7 +7,7 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css " />
 		<link rel = "stylesheet" type = "text/css" href = "css/style.css" />
-	
+		
 	</head>
 <body>
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
@@ -47,14 +47,14 @@
 		  <!-- body content  -->
 		  <section class = "services sec-width" id = "services">
           <div class="title">
-            <h4 style="color: black;">Attraction </h4>
+            <h4 style="color: black;">CUISINE </h4>
         </div>
 
            <!-- syart booking content  -->
             <div style="padding: 20px; text-align: center;">
             <?php
                 require_once 'connection/connect.php';
-                $query = $conn->query("SELECT * FROM `attraction` ") or die(mysql_error());
+                $query = $conn->query("SELECT * FROM `cuisine` ") or die(mysql_error());
                 while($fetch = $query->fetch_array()){
                 ?>
                     <div style="display: inline-block; width: 250px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
@@ -64,14 +64,9 @@
                             onmouseover="this.style.transform='scale(1.1)';" 
                             onmouseout="this.style.transform='scale(1)';">
                         <div style="padding: 10px; text-align: center;">
-                            <h3 style="font-size: 2.2rem; margin-bottom: 5px; font-weight: bold; color: black;"><?php echo $fetch['attraction_name']; ?></h3>
-                            <h4 style="font-size: 1.5rem; color: #555; margin-bottom: 15px;">Location: <?php echo $fetch['location']; ?></h4>
+                            <h3 style="font-size: 2.2rem; margin-bottom: 5px; font-weight: bold; color: black;"><?php echo $fetch['cuisine_name']; ?></h3>
                             <h4 style="font-size: 2rem; color: #555; margin-bottom: 15px;"><?php echo $fetch['descr']; ?></h4>
-                            <button onclick="window.location.href='#?attraction_id=<?php echo $fetch['attraction_id']; ?>'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
-                                    onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
-                                    onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
-                                <img src="image/next.png" alt="Reserve Button" style="width: 20px; height: 20px;">
-                            </button>
+                            
                         </div>
                     </div>
                 <?php
@@ -87,12 +82,7 @@
 
 
         <!-- end of body content -->
-        
        
-
-        
-
-    
 			</div>
 		</div>
 	</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2024 at 05:33 PM
+-- Generation Time: Nov 11, 2024 at 09:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -51,6 +51,8 @@ CREATE TABLE `attraction` (
   `attraction_id` int(100) NOT NULL,
   `attraction_name` varchar(200) NOT NULL,
   `descr` varchar(200) NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `transportation` varchar(200) NOT NULL,
   `photo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -58,8 +60,8 @@ CREATE TABLE `attraction` (
 -- Dumping data for table `attraction`
 --
 
-INSERT INTO `attraction` (`attraction_id`, `attraction_name`, `descr`, `photo`) VALUES
-(1, 'san lorenzo taysan', 'taysan', 'san lorenzo.jfif');
+INSERT INTO `attraction` (`attraction_id`, `attraction_name`, `descr`, `location`, `transportation`, `photo`) VALUES
+(1, 'san lorenzo taysan', 'famous churc', 'taysan batangas', 'lobo jeep', 'san lorenzo.jfif');
 
 -- --------------------------------------------------------
 
@@ -80,7 +82,8 @@ CREATE TABLE `cuisine` (
 --
 
 INSERT INTO `cuisine` (`cuisine_id`, `cuisine_name`, `descr`, `location`, `photo`) VALUES
-(1, 'tuhog', 'masarp', 'tadfwybdwe', 'download (1).jfif');
+(1, 'tuhog-tuhog', 'masarap lang ', 'taysan ibaba city', 'download (1).jfif'),
+(5, 'lome', 'msandmnadmjd', '', 'download (2).jfif');
 
 -- --------------------------------------------------------
 
@@ -150,7 +153,8 @@ INSERT INTO `guest` (`guest_id`, `name`, `address`, `contactno`, `email`) VALUES
 (279, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
 (280, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
 (281, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(282, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com');
+(282, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(283, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -163,6 +167,8 @@ CREATE TABLE `resort` (
   `resort_name` varchar(200) NOT NULL,
   `price` varchar(200) NOT NULL,
   `descr` varchar(200) NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `transportation` varchar(200) NOT NULL,
   `photo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -170,8 +176,8 @@ CREATE TABLE `resort` (
 -- Dumping data for table `resort`
 --
 
-INSERT INTO `resort` (`resort_id`, `resort_name`, `price`, `descr`, `photo`) VALUES
-(2, 'villa gabo 1', '10', 'free', 'resort.jfif');
+INSERT INTO `resort` (`resort_id`, `resort_name`, `price`, `descr`, `location`, `transportation`, `photo`) VALUES
+(3, 'villa isable', '5000', 'full package', 'Bayan ng Taysan\r\nBatangas', 'bahala kana', 'resort.jfif');
 
 -- --------------------------------------------------------
 
@@ -186,6 +192,8 @@ CREATE TABLE `room` (
   `room_number` varchar(100) NOT NULL,
   `price` varchar(11) NOT NULL,
   `descr` varchar(200) NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `transportation` varchar(200) NOT NULL,
   `photo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -193,12 +201,10 @@ CREATE TABLE `room` (
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`room_id`, `hotel_name`, `room_type`, `room_number`, `price`, `descr`, `photo`) VALUES
-(33, 'macrolodge', 'Moon Room', '2', '100', 'effce', 'download.jfif'),
-(35, 'yello', 'Galaxy Room', '4', '10011', 'ako', 'download.jfif'),
-(36, 'macrolodge', 'Galaxy Room', '0', '1000', 'free wifi', '4.jpg'),
-(38, 'yello', 'Pluto Room', '10', '1000', 'free meal', 'download.jfif'),
-(39, 'macrolodge', 'Moon Room', '1', '1000', 'qdeq', 'download.jfif');
+INSERT INTO `room` (`room_id`, `hotel_name`, `room_type`, `room_number`, `price`, `descr`, `location`, `transportation`, `photo`) VALUES
+(33, 'macrolodge', 'Moon Room', '2', '100', 'effce', 'batangas city', 'roooute jeep', 'download.jfif'),
+(38, 'yello', 'Pluto Room', '10', '1000', 'free meal', 'dulooo', 'bahalakakska', 'download.jfif'),
+(40, 'glenn hotell', 'deluxe', '200', '1000', 'etc', 'batangas city', 'route tabangao', 'download.jfif');
 
 -- --------------------------------------------------------
 
@@ -255,7 +261,8 @@ CREATE TABLE `transactionresort` (
 --
 
 INSERT INTO `transactionresort` (`transaction_id`, `id`, `guest_id`, `resort_id`, `resort_name`, `status`, `days`, `checkin`, `checkin_time`, `checkout`, `checkout_time`, `bill`) VALUES
-(17, 32, 233, 2, 'villa gabo 1', 'Pending', 12, '2024-11-11', '00:00:00', '0000-00-00', '00:00:00', 'Php. 120.0');
+(17, 32, 233, 2, 'villa gabo 1', 'Pending', 12, '2024-11-11', '00:00:00', '0000-00-00', '00:00:00', 'Php. 120.0'),
+(18, 32, 233, 3, 'villa isable', 'Pending', 2, '2024-11-12', '00:00:00', '0000-00-00', '00:00:00', 'Php. 10000');
 
 -- --------------------------------------------------------
 
@@ -359,25 +366,25 @@ ALTER TABLE `attraction`
 -- AUTO_INCREMENT for table `cuisine`
 --
 ALTER TABLE `cuisine`
-  MODIFY `cuisine_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cuisine_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-  MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
+  MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
 
 --
 -- AUTO_INCREMENT for table `resort`
 --
 ALTER TABLE `resort`
-  MODIFY `resort_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `resort_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `transaction`
@@ -389,7 +396,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `transactionresort`
 --
 ALTER TABLE `transactionresort`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
