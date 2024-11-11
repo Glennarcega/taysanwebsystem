@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2024 at 09:02 AM
+-- Generation Time: Nov 11, 2024 at 07:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -82,7 +82,6 @@ CREATE TABLE `cuisine` (
 --
 
 INSERT INTO `cuisine` (`cuisine_id`, `cuisine_name`, `descr`, `location`, `photo`) VALUES
-(1, 'tuhog-tuhog', 'masarap lang ', 'taysan ibaba city', 'download (1).jfif'),
 (5, 'lome', 'msandmnadmjd', '', 'download (2).jfif');
 
 -- --------------------------------------------------------
@@ -104,31 +103,6 @@ CREATE TABLE `guest` (
 --
 
 INSERT INTO `guest` (`guest_id`, `name`, `address`, `contactno`, `email`) VALUES
-(233, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(234, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(235, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(236, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(237, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(238, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(239, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(240, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(241, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(242, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(243, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(244, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(245, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(246, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(247, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(248, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(249, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(250, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(251, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(252, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(253, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(254, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(255, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(256, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(257, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
 (258, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
 (259, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
 (260, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
@@ -154,7 +128,34 @@ INSERT INTO `guest` (`guest_id`, `name`, `address`, `contactno`, `email`) VALUES
 (280, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
 (281, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
 (282, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
-(283, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com');
+(283, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(284, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(285, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(286, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(287, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(288, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(289, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(290, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(291, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(292, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(293, '<br />\r\n<b>Warning</b>:  Trying to access array of', '<br />\r\n<b>Warning</b>:  Trying to access array of', '<br />\r\n<b>Wa', '<br />\r\n<b>Warning</b>:  Trying to access array offset on value of type null in <b>C:xampphtdocsTays'),
+(294, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(295, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(296, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(297, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(298, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(299, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(300, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(301, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(302, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(303, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(304, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(305, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(306, 'glenda', 'eqsdqe', '09952846057', 'glennarcega177@gmail.com'),
+(307, 'glaiza mae arcega', 'Tabangao Ambulong batangas City', '091234738764', 'glaizamaeplataarcega@gmail.com'),
+(308, 'glaiza', 'ambulong batangas city', '09951659446', 'glaizamaeplataarcega@gmail.com'),
+(309, 'glaiza', 'ambulong batangas city', '09951659446', 'glaizamaeplataarcega@gmail.com'),
+(310, 'glaiza', 'ambulong batangas city', '09951659446', 'glaizamaeplataarcega@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -202,9 +203,7 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`room_id`, `hotel_name`, `room_type`, `room_number`, `price`, `descr`, `location`, `transportation`, `photo`) VALUES
-(33, 'macrolodge', 'Moon Room', '2', '100', 'effce', 'batangas city', 'roooute jeep', 'download.jfif'),
-(38, 'yello', 'Pluto Room', '10', '1000', 'free meal', 'dulooo', 'bahalakakska', 'download.jfif'),
-(40, 'glenn hotell', 'deluxe', '200', '1000', 'etc', 'batangas city', 'route tabangao', 'download.jfif');
+(33, 'macrolodge', 'Moon Room', '2', '100', 'effce', 'batangas city', 'roooute jeep', 'download.jfif');
 
 -- --------------------------------------------------------
 
@@ -233,7 +232,9 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`transaction_id`, `id`, `guest_id`, `room_id`, `hotel_name`, `room_number`, `status`, `days`, `checkin`, `checkin_time`, `checkout`, `checkout_time`, `bill`) VALUES
-(210, '32', 233, 36, 'macrolodge', 0, 'Pending', 1, '2024-11-11', '00:00:00', '0000-00-00', '00:00:00', 'Php. 1000.');
+(228, '32', 258, 40, 'glenn hotell', 200, 'Cancel', 4, '2024-11-13', '00:00:00', '0000-00-00', '00:00:00', 'Php. 4000.'),
+(229, '34', 307, 38, 'yello', 10, 'Reserved', 2, '2024-11-13', '00:00:00', '0000-00-00', '00:00:00', 'Php. 2000.'),
+(230, '35', 308, 33, 'macrolodge', 2, 'Check Out', 5, '2024-11-12', '00:00:00', '0000-00-00', '01:12:38', 'Php. 500.0');
 
 -- --------------------------------------------------------
 
@@ -261,8 +262,7 @@ CREATE TABLE `transactionresort` (
 --
 
 INSERT INTO `transactionresort` (`transaction_id`, `id`, `guest_id`, `resort_id`, `resort_name`, `status`, `days`, `checkin`, `checkin_time`, `checkout`, `checkout_time`, `bill`) VALUES
-(17, 32, 233, 2, 'villa gabo 1', 'Pending', 12, '2024-11-11', '00:00:00', '0000-00-00', '00:00:00', 'Php. 120.0'),
-(18, 32, 233, 3, 'villa isable', 'Pending', 2, '2024-11-12', '00:00:00', '0000-00-00', '00:00:00', 'Php. 10000');
+(22, 32, 258, 3, 'villa isable', 'Check In', 2, '2024-11-12', '00:00:00', '0000-00-00', '00:00:00', 'Php. 10000');
 
 -- --------------------------------------------------------
 
@@ -286,7 +286,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `address`, `contactno`, `username`, `email`, `password`) VALUES
 (32, 'glenda', 'eqsdqe', '09952846057', 'glenn', 'glennarcega177@gmail.com', '$2y$10$vBuMk99um3IMdI0XluqyhuL4sIGcshTE3G/X1JFDMkCgWWe17gLSm'),
-(33, 'galiza', 'Tabangao Ambulong batangas City', '0901327323', 'galiza', 'glennemersona@gmail.com', '$2y$10$5T3RziUoVbXkzUJ0FmhHlOQzAZwCo1OYfsk3GDF45S72cH.5cn91i');
+(33, 'galiza', 'Tabangao Ambulong batangas City', '0901327323', 'galiza', 'glennemersona@gmail.com', '$2y$10$5T3RziUoVbXkzUJ0FmhHlOQzAZwCo1OYfsk3GDF45S72cH.5cn91i'),
+(35, 'glaiza', 'ambulong batangas city', '09951659446', 'glza', 'glaizamaeplataarcega@gmail.com', '$2y$10$p2YfstrYiX9zrBs7.YGmVOYBZGQUIVqW6fKT129sblLS6zgvCmGNi');
 
 --
 -- Indexes for dumped tables
@@ -372,13 +373,13 @@ ALTER TABLE `cuisine`
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-  MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
+  MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=311;
 
 --
 -- AUTO_INCREMENT for table `resort`
 --
 ALTER TABLE `resort`
-  MODIFY `resort_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `resort_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `room`
@@ -390,19 +391,19 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
 
 --
 -- AUTO_INCREMENT for table `transactionresort`
 --
 ALTER TABLE `transactionresort`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
