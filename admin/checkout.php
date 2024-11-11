@@ -82,7 +82,7 @@
 							<td><?php echo $fetch['contactno']?></td>
 							<td><?php echo $fetch['hotel_name']?></td>
 							<td><?php echo $fetch['room_type']?></td>
-							<td><?php echo $fetch['room_no']?></td>
+							<td><?php echo $fetch['room_number']?></td>
 							<td><?php echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>"." @ "."<label>".date("h:i a", strtotime($fetch['checkin_time']))."</label>"?></td>
 							<td><?php echo $fetch['days']?></td>
 							<td><?php echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']."+".$fetch['days']."DAYS"))."</label>"." @ "."<label>".date("h:i A", strtotime($fetch['checkout_time']))."</label>"?></td>

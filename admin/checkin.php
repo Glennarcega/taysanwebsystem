@@ -84,7 +84,7 @@
 							<td><?php echo $fetch['contactno']?></td>
 							<td><?php echo $fetch['hotel_name']?></td>
 							<td><?php echo $fetch['room_type']?></td>
-							<td><?php echo $fetch['room_no']?></td>
+							<td><?php echo $fetch['room_number']?></td>
 							<?php
 							date_default_timezone_set('Asia/Manila');
 							echo "<td>";

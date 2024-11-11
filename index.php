@@ -21,8 +21,20 @@
                 </div>
             </div>
             <div class = "head-bottom flex">
-                <h2>NICE AND COMFORTABLE PLACE TO STAY</h2>
-                <p>Welcome to Casa’s Transient House! Start the day with a life full of happiness and enjoyment. Visit our place here at Maricaban, Tingloy, Batangas to amaze by the beauty of beaches here. What are you waiting for? Reserve your room now!</p>
+            
+            <div style="text-align: center; padding-top: 50px;">
+    <h1 style="font-size: 4rem; color: white; text-align: center; margin-top: 30px; text-shadow: 7px 7px 7px rgba(5, 5, 5, 5.8), 0px 0px 8px pink;">
+        Unlock the Secrets in Taysan,
+    </h1>
+    <h2 style="font-size: 3rem; color: white; text-align: center; margin-top: 20px; text-shadow: 7px 7px 9px rgba(0, 0, 0, 0.8), 0px 0px 8px pink;">
+        Travel Beyond Expectations
+    </h2>
+    <p style="font-size: 1.5rem; color: white; text-align: center; margin-top: 20px; line-height: 1.6; text-shadow: 7px 7px 9px rgba(0, 0, 0, 0.8), 0px 0px 6px pink;">
+        We don't just plan trips, we craft unforgettable adventures.
+    </p>
+</div>
+
+
                 <a href ="login_user.php" style="text-decoration:none;" button type = "button"  class = "head-btn">GET STARTED</button></a>
             </div>
         </header>
@@ -60,9 +72,37 @@
                 <h2>Explore</h2>
             </div>
             <div class="services-container" style="display: inline-block;">
+                
                <!-- start booking content  -->
             <div style="padding: 20px; text-align: center;">
-            <a href="reservation_resort.php?id=<?php echo $id; ?>" style="text-decoration: none;">
+            <a href="#" id="popupLink"  style="text-decoration: none;">
+        
+
+                                <script>
+                        // Get the link and the message element
+                        const link = document.getElementById('popupLink');
+                        const hiddenMessage = document.getElementById('hiddenMessage');
+
+                        // Add click event listener to the link
+                        link.addEventListener('click', function(event) {
+                            event.preventDefault(); // Prevent the default behavior of the link (e.g., page refresh)
+
+                            // Show the popup message and navigate to register_user.php after the alert
+                            alert("Please Create Account to booked and explore!");
+
+                            // Redirect to register_user.php
+                            window.location.href = "register_user.php"; // This will navigate to the register_user.php page
+
+                            // Show the hidden message (optional)
+                            hiddenMessage.style.display = 'block'; // Make the hidden message visible
+                        });
+
+                        // Optional: Hide the message after 5 seconds
+                        setTimeout(() => {
+                            hiddenMessage.style.display = 'none'; // Hide the message after 5 seconds
+                        }, 5000);
+                    </script>
+
                 <div style="display: inline-block; width: 250px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;"  
                     onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
                     onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -70,8 +110,8 @@
                         onmouseover="this.style.transform='scale(1.1)';" 
                         onmouseout="this.style.transform='scale(1)';">
                     <div style="padding: 15px; text-align: center;">
-                        <h3 style="font-size: 2.2rem; margin-bottom: 10px; font-weight: bold; color: black;">RESORT</h3>
-                        <p style="font-size: 1.5rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; font-weight: bold; color: black;">RESORT</h3>
+                        <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
 
                         <button style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
                                 onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
@@ -91,7 +131,7 @@
             </a>
 
 
-            <a href="reservation_hotel.php?id=<?php echo $id; ?>" style="text-decoration: none;">
+            <a href="#" id="popupLink"  style="text-decoration: none;">
             <div style="display: inline-block; width: 250px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
                 onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
                 onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -99,10 +139,10 @@
                     onmouseover="this.style.transform='scale(1.1)';" 
                     onmouseout="this.style.transform='scale(1)';">
                 <div style="padding: 15px; text-align: center;">
-                    <h3 style="font-size: 2.2rem; margin-bottom: 10px; font-weight: bold; color: black;">HOTEL</h3>
-                    <p style="font-size: 1.5rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; font-weight: bold; color: black;">HOTEL</h3>
+                    <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
                     
-                    <button onclick="window.location.href='reservation_hotel.php?id=<?php echo $id; ?>'"    style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                    <button onclick="window.location.href='#'"    style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
                             onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
                             onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
                         <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
@@ -119,7 +159,7 @@
             </div>
             </a>
 
-            <a href="view_attraction.php?id=<?php echo $id; ?>" style="text-decoration: none;">
+            <a href="#" style="text-decoration: none;">
             <div style="display: inline-block; width: 250px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
                 onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
                 onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -127,10 +167,10 @@
                     onmouseover="this.style.transform='scale(1.1)';" 
                     onmouseout="this.style.transform='scale(1)';">
                 <div style="padding: 15px; text-align: center;">
-                    <h3 style="font-size: 2.2rem; margin-bottom: 10px; font-weight: bold; color: black;">ATTRACTION</h3>
-                    <p style="font-size: 1.5rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; font-weight: bold; color: black;">ATTRACTION</h3>
+                    <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
                     
-                    <button onclick="window.location.href='view_attraction.php?id=<?php echo $id; ?>'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                    <button onclick="window.location.href='#'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
                             onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
                             onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
                         <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
@@ -147,7 +187,7 @@
             </div>
             </a>
 
-            <a href="view_cuisine.php?id=<?php echo $id; ?>" style="text-decoration: none;">
+            <a href="#" style="text-decoration: none;">
             <div style="display: inline-block; width: 250px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; transition: all 0.3s ease;" 
                 onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
                 onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
@@ -155,10 +195,10 @@
                     onmouseover="this.style.transform='scale(1.1)';" 
                     onmouseout="this.style.transform='scale(1)';">
                 <div style="padding: 15px; text-align: center;">
-                    <h3 style="font-size: 2.2rem; margin-bottom: 10px; font-weight: bold; color: black;">CUISINE</h3>
-                    <p style="font-size: 1.5rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; font-weight: bold; color: black;">CUISINE</h3>
+                    <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
                     
-                    <button onclick="window.location.href='view_cuisine.php?id=<?php echo $id; ?>'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
+                    <button onclick="window.location.href='#'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
                             onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
                             onmouseout="this.style.backgroundColor='#f0f0f0'; this.style.transform='scale(1)';">
                         <img src="image/next.png" alt="Button Image" style="width: 30px; height: 30px;">
@@ -190,12 +230,7 @@
                 <div class = "title">
                     <h2>Abouit Us</h2>
                 </div>
-                <div class = "map-wrapper">
-                    <iframe class="googlemap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d829.1201133727957!2d120.8377236!3d13.6699786!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bdab3c8df32c41%3A0x6cc1713e24fb4b83!2sMapating%20Beach%20Resort!5e1!3m2!1sen!2sph!4v1666580260542!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            
-                    </div>
-                    <!-- end of single customer -->
-                </div>
+               
             </div>
         </section>
         <!-- end of body content -->

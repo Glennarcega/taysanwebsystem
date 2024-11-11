@@ -73,6 +73,7 @@ require_once 'connection/connect.php';
 							<th>Reserved Date</th>
 							<th>Status</th>
                             <th>Bill</th>
+							<th>Action</th>
 
 
 						</tr>
@@ -109,6 +110,11 @@ if ($query->num_rows > 0) {
             </strong></td>
             <td><?php echo $fetch['status']; ?></td>
             <td><?php echo $fetch['bill']; ?></td>
+			<td>
+				<a class = "btn btn-success" href="user_query/cancel_query_resort.php?transaction_id=<?php echo $fetch['transaction_id']; ?>&id=<?php echo $fetch['id']; ?>">
+				Cancel</a>                            
+    
+
         </tr>
         <?php
     }

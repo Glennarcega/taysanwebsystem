@@ -77,6 +77,7 @@ require_once 'connection/connect.php';
 							<th>Reserved Date</th>
 							<th>Status</th>
                             <th>Bill</th>
+                            <th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -123,7 +124,14 @@ require_once 'connection/connect.php';
                                                 ?>
                                             </strong></td>
                                             <td><?php echo htmlspecialchars($fetch['status']); ?></td>
-                                            <td><?php echo htmlspecialchars($fetch['bill']); ?></td>
+                                            <td><?php echo htmlspecialchars($fetch['bill']); ?></td><td>
+                                                                     
+                                            <a class="btn btn-success" href="user_query/cancel_query_hotel.php?transaction_id=<?php echo $fetch['transaction_id']; ?>&id=<?php echo $fetch['id']; ?>">
+                                                Cancel
+                                         </a>
+                                       
+
+
                                         </tr>
                                         <?php
                                     }

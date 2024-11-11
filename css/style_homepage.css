@@ -55,7 +55,7 @@ img{
 
 /* header */
 .header{
-    background-image: url(../image/nasugbu.jpg);
+    background-color: #252525;
     background-repeat: no-repeat;
     background-size: 1700px 1000px;
     min-height: 100vh;
