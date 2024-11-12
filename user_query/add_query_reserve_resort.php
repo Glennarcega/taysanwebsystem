@@ -13,34 +13,35 @@ if (isset($_POST['add_guest'])) {
     $bill = $_POST['bill'];
     $resort_id = $_REQUEST['resort_id'];
 
-    // Insert guest information
-    $conn->query("INSERT INTO `guest` (name, address, contactno, email) VALUES('$name', '$address', '$contactno', '$email')") or die(mysqli_error($conn));
-
-    // Retrieve guest ID
-    $query = $conn->query("SELECT * FROM `guest` WHERE `name` = '$name' AND `contactno` = '$contactno' AND `email` = '$email'") or die(mysqli_error($conn));
-    $fetch = $query->fetch_array();
-
-    // Check if the room is available for the requested check-in date
+    // Check if the resort is available for the requested check-in date
     $query2 = $conn->query("SELECT * FROM `transactionresort` WHERE `checkin` = '$checkin' AND `resort_id` = '$resort_id' AND `status` = 'Pending'") or die(mysqli_error($conn));
     $row = $query2->num_rows;
 
+    // Check for valid check-in date
     if ($checkin < date("Y-m-d", strtotime('+8 HOURS'))) {    
         echo "<script>alert('Check-in date must be a present or future date')</script>";
+    } elseif ($row > 0) {
+        // If date is already booked, show an alert and stop the process
+        echo "<script>alert('This date is already booked for the selected resort. Please choose another date.')</script>";
     } else {
+        // Insert guest information
+        $conn->query("INSERT INTO `guest` (name, address, contactno, email) VALUES('$name', '$address', '$contactno', '$email')") or die(mysqli_error($conn));
+
+        // Retrieve guest ID
+        $query = $conn->query("SELECT * FROM `guest` WHERE `name` = '$name' AND `contactno` = '$contactno' AND `email` = '$email'") or die(mysqli_error($conn));
+        $fetch = $query->fetch_array();
+
         if ($guest_id = $fetch['guest_id']) {
-            // Fetch room price from the room table
+            // Fetch resort price from the resort table
             $resort_query = $conn->query("SELECT price FROM `resort` WHERE `resort_id` = '$resort_id'") or die(mysqli_error($conn));
             $resort = $resort_query->fetch_array();
             
-
             // Insert transaction with total bill
-            $conn->query("INSERT INTO `transactionresort` (id, resort_name, guest_id, resort_id, status, checkin, days,bill) VALUES ('$id', '$resort_name', '$guest_id', '$resort_id', 'Pending', '$checkin', '$days', '$bill')") or die(mysqli_error($conn));
+            $conn->query("INSERT INTO `transactionresort` (id, resort_name, guest_id, resort_id, status, checkin, days, bill) VALUES ('$id', '$resort_name', '$guest_id', '$resort_id', 'Pending', '$checkin', '$days', '$bill')") or die(mysqli_error($conn));
 
             // Redirect to the reply page after successful insertion
-            
             echo "<script>window.location.href = 'reply_reserve.php?id=" . urlencode($id) . "';</script>";
             exit;
-            
         } else {
             echo "<script>alert('Error: Guest ID not found.')</script>";
         }

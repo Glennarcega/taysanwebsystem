@@ -68,7 +68,7 @@
 							onmouseout="this.style.transform='scale(1)';">
 					</div>
 					<div style="flex: 1; margin-left: 10px; padding: 10px;">
-						<h4 style="margin: 0; font-size: 1.5rem; font-weight: bold; color: black;">Hotel Name: <?php echo $fetch['hotel_name']; ?></h4>
+						<h4 style="margin: 0; font-size: 2rem; font-weight: bold; color: black;">Hotel Name: <?php echo $fetch['hotel_name']; ?></h4>
 						<h5 style="margin: 5px 0; font-size: 1.2rem; color: black;">Room Number: <?php echo $fetch['room_number']; ?></h5>
 						<h5 style="margin: 5px 0; font-size: 1.2rem; color: black;">Room Type: <?php echo $fetch['room_type']; ?></h5>
 						<h5 style="margin: 5px 0; font-size: 1.2rem; color: black;">Description: <?php echo $fetch['descr']; ?></h5>

@@ -66,25 +66,15 @@
 						onmouseover="this.style.transform='scale(1.05)';"
 						onmouseout="this.style.transform='scale(1)';">
 				</div>
-				
-				<div style="flex: 1; padding: 10px; margin-left: 10px; font-family: 'Futura', sans-serif;">
-					<h3 style="margin: 0; font-size: 1.5rem; color: #333; font-family: 'Futura', sans-serif;">
-						Resort Name: <?php echo htmlspecialchars($fetch['resort_name']); ?>
-					</h3>
-					<h5 style="margin: 5px 0; color: #666; font-family: 'Futura', sans-serif;">
-						Description: <?php echo htmlspecialchars($fetch['descr']); ?>
-					</h5>
-					<h5 style="margin: 5px 0; color: #666; font-family: 'Futura', sans-serif;">
-						Location: <?php echo htmlspecialchars($fetch['location']); ?>
-					</h5>
-					<h3 style="color: #00ff00; font-size: 1.5rem; font-family: 'Futura', sans-serif;">
-						Price: Php. <?php echo number_format($fetch['price'], 2, '.', ','); ?>
-					</h3>
-				</div>
-
-
-				
-				</div>
+			
+			<div style="flex: 1; margin-left: 10px; padding: 10px;">
+						<h4 style="margin: 0; font-size: 2rem; font-weight: bold; color: black;">Hotel Name: <?php echo $fetch['resort_name']; ?></h4>
+						<h5 style="margin: 5px 0; font-size: 1.2rem; color: black;">Description: <?php echo $fetch['descr']; ?></h5>
+						<h5 style="margin: 5px 0; font-size: 1.2rem; color: black;">Location: <?php echo $fetch['location']; ?></h5>
+						<h5 style="color: #00ff00; margin: 5px 0; font-size: 1.5rem;">Price: Php. <?php echo $fetch['price'] . ".00"; ?></h5>
+					</div>
+	
+			</div>
 			
 				<br style = "clear:both;" />
 				<div class = "well col-md-4">
