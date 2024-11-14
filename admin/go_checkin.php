@@ -81,22 +81,50 @@
 					</thead>
 					<tbody>
 						<?php
-							$query = $conn->query("SELECT * FROM `transaction` NATURAL JOIN `guest` NATURAL JOIN `room` WHERE `status` = 'Pending'") or die(mysqli_error());
-							while($fetch = $query->fetch_array()){
-						?>
-						<tr>
-							<td><?php echo $fetch['name']?></td>
-							<td><?php echo $fetch['contactno']?></td>
-							<td><?php echo $fetch['email']?></td>
-							<td><?php echo $fetch['hotel_name']?></td>
-							<td><?php echo $fetch['room_type']?></td>
-							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
-							<td><?php echo $fetch['status']?></td>
-							<td><center><a class = "btn btn-success" href = "../admin_query/confirm_query_reserve.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Reserve</a>
-						</tr>
-						<?php
-							}
-						?>
+    // Assume $id is passed to this script (e.g., via GET or POST method)
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+
+    if ($id) {
+        $query = $conn->query("SELECT * FROM `transaction` 
+                               NATURAL JOIN `guest` 
+                               NATURAL JOIN `room` 
+                               WHERE `status` = 'Pending' 
+                               AND `id` = '$id'") 
+        or die(mysqli_error($conn));
+        
+        while($fetch = $query->fetch_array()){
+?>
+            <tr>
+                <td><?php echo $fetch['name']; ?></td>
+                <td><?php echo $fetch['contactno']; ?></td>
+                <td><?php echo $fetch['email']; ?></td>
+                <td><?php echo $fetch['hotel_name']; ?></td>
+                <td><?php echo $fetch['room_type']; ?></td>
+                <td>
+                    <strong>
+                        <?php 
+                            if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){
+                                echo "<label style='color:#ff0000;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                            } else {
+                                echo "<label style='color:#00ff00;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                            }
+                        ?>
+                    </strong>
+                </td>
+                <td><?php echo $fetch['status']; ?></td>
+                <td>
+                    <center>
+<a class="btn btn-success" href="../admin_query/confirm_query_reserve.php?id=<?php echo $fetch['id']; ?>&transaction_id=<?php echo $fetch['transaction_id']; ?>"> Reserve</a>
+                    </center>
+                </td>
+            </tr>
+<?php
+        }
+    } else {
+        echo "No ID specified.";
+    }
+?>
+
 				
 					</tbody>
 				</table>

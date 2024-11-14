@@ -11,7 +11,6 @@
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
 		<link rel = "stylesheet" type = "text/css" href = "../css/style.css" />
         <link rel="stylesheet" type="text/css" href="../sendemail/css/bootstrap.css"/>
-       
 	</head>
 <body>
 	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
@@ -31,10 +30,10 @@
 		<ul class = "nav nav-pills">
 			<li><a href = "home.php">Home</a></li>
 			<li class = ""><a href = "registered_user.php">Registered Accounts</a></li>
-			<li ><a href = "account.php">Accounts</a></li>
-			<li class = "active"><a href = "reserve.php">Hotel Booking</a></li>
-			<li><a href = "reserve_resort.php">Resort Booking</a></li>
-			<li ><a href = "room.php">Booking</a></li>				
+			<li><a href = "account.php">Accounts</a></li>
+			<li ><a href = "reserve.php">Hotel Booking</a></li>
+			<li class="active"><a href = "reserve_resort.php">Resort Booking</a></li>
+			<li ><a href = "room.php">Booking</a></li>			
 		</ul>	
 	</div>
 	
@@ -42,21 +41,21 @@
 	<div class = "container-fluid">	
 		<div class = "panel panel-default">
 			<?php
-				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Pending'") or die(mysqli_error());
+				$q_p = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Pending'") or die(mysqli_error());
 				$f_p = $q_p->fetch_array();
-				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Reserved'") or die(mysqli_error());
+				$q_c = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Reserved'") or die(mysqli_error());
 				$f_c = $q_c->fetch_array();
-				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check In'") or die(mysqli_error());
+				$q_ci = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check In'") or die(mysqli_error());
 				$f_ci = $q_ci->fetch_array();
-				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transaction` WHERE `status` = 'Check Out'") or die(mysqli_error());
+				$q_cw = $conn->query("SELECT COUNT(*) as total FROM `transactionresort` WHERE `status` = 'Check Out'") or die(mysqli_error());
 				$f_cw = $q_cw->fetch_array();
 			?>
 			<div class = "panel-body">
 	
-				<a class = "btn btn-info" href="reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Request</a>
-				<a class = "btn btn-info" href="reserve1.php"><span class = "badge"><?php echo $f_c['total']?></span> Reserved</a>
-				<a class = "btn btn-info" href = "checkin.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
-				<a class = "btn btn-warning" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
+				<a class = "btn btn-info disabled" href="reserve.php"><span class = "badge"><?php echo $f_p['total']?></span> Pendings</a>
+				<a class = "btn btn-info" href="go_discard_resort.php"><span class = "badge"><?php echo $f_c['total']?></span> Discard</a>
+				<a class = "btn btn-info disabled" href = "checkin.php"><span class = "badge"><?php echo $f_ci['total']?></span> Check In</a>
+				<a class = "btn btn-info disabled" href = "checkout.php"><span class = "badge"><?php echo $f_cw['total']?></span> Check Out</a>
 				<br />
 				<br />
  
@@ -66,9 +65,8 @@
 							<th>Name</th>
 							<th>Contact No</th>
 							<th>Email</th>
-							<th>Hotel Name</th>
-							<th>Room Type</th>
-							<th>Bill</th>
+							<th>Resort Name</th>
+						
 							<th>Reserved Date</th>
 							<th>Status</th>
 							<th>Action</th>
@@ -76,34 +74,47 @@
 						
 					</thead>
 					<tbody>
-						<?php
-							$query = $conn->query("SELECT * FROM `transaction` NATURAL JOIN `guest` NATURAL JOIN `room` WHERE `status` = 'Reserved'") or die(mysqli_error());
-							while($fetch = $query->fetch_array()){
-						?>
+					    	<?php
+                            // Assume $id is passed to this script (e.g., via GET or POST method)
+                            $id = isset($_GET['id']) ? $_GET['id'] : null;
+                        
+                            if ($id) {
+                                $query = $conn->query("SELECT * FROM `transactionresort` 
+                                                       NATURAL JOIN `guest` 
+                                                       NATURAL JOIN `resort` 
+                                                       WHERE `status` = 'Pending' 
+                                                       AND `id` = '$id'") 
+                                or die(mysqli_error($conn));
+                                
+                                while($fetch = $query->fetch_array()){
+                        ?>
+						
+						
 						<tr>
 							<td><?php echo $fetch['name']?></td>
 							<td><?php echo $fetch['contactno']?></td>
 							<td><?php echo $fetch['email']?></td>
-							<td><?php echo $fetch['hotel_name']?></td>
-							<td><?php echo $fetch['room_type']?></td>
-							<td><?php echo $fetch['bill']?></td>
+							<td><?php echo $fetch['resort_name']?></td>
+							
 							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
 							<td><?php echo $fetch['status']?></td>
-							<td><center><a class = "btn btn-success" href = "../admin_query/checkin_query_reserve.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Checkin</a> 
-						</tr>
-						<?php
-							}
-						?>
-				
+							<td><center><a class = "btn btn-danger" href = "../admin_query/discard_query_resort.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Discard</a>
+					            </tr>
+<?php
+        }
+    } else {
+        echo "No ID specified.";
+    }
+?>
+
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 	
+                
     
-    
-
 </body>
 <script src = "../js/jquery.js"></script>
 <script src = "../js/jquery.dataTables.js"></script>

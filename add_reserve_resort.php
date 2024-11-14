@@ -56,16 +56,11 @@
 					$query = $conn->query("SELECT * FROM `resort` WHERE `resort_id` = '$_REQUEST[resort_id]'") or die(mysql_error());
 					$fetch = $query->fetch_array();
 				?>
-				<div style = "height:300px; width:800px;">
-				<div style="height: 300px; width: 800px; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; margin: 10px; overflow: hidden; transition: all 0.3s ease;"
-				onmouseover="this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.03)';"
-				onmouseout="this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-				
-				<div style="flex: 1; max-width: 400px; overflow: hidden;">
-					<img src="photo/<?php echo $fetch['photo']?>" alt="Resort Image" style="width: 100%; height: 300px; object-fit: cover; transition: transform 0.3s ease;"
-						onmouseover="this.style.transform='scale(1.05)';"
-						onmouseout="this.style.transform='scale(1)';">
-				</div>
+			<div class="d-flex flex-column flex-md-row align-items-center border rounded shadow-sm p-3 my-3" style="background-color: #fff;">
+                    <div class="flex-grow-1 overflow-hidden mb-3 mb-md-0">
+                        <img src="photo/<?php echo $fetch['photo'] ?>" alt="Resort Image" class="img-fluid rounded" style="width: 100%; height: auto; object-fit: cover;">
+                    </div>
+
 			
 			<div style="flex: 1; margin-left: 10px; padding: 10px;">
 						<h4 style="margin: 0; font-size: 2rem; font-weight: bold; color: black;">Hotel Name: <?php echo $fetch['resort_name']; ?></h4>
@@ -74,10 +69,7 @@
 						<h5 style="color: #00ff00; margin: 5px 0; font-size: 1.5rem;">Price: Php. <?php echo $fetch['price'] . ".00"; ?></h5>
 					</div>
 	
-			</div>
-			
-				<br style = "clear:both;" />
-				<div class = "well col-md-4">
+
 						
 						<?php
 						// Retrieve user_id from the URL if it exists
@@ -131,10 +123,10 @@
 								<label for="days" class="col-form-label">Days</label>
 								<input type="number" min="0" max="99" id="days" name="days" class="form-control" required="required" oninput="calculateTotal()" />
 							</div>
-						<div class="form-group">
-						<label>Total payment</label>
-						<input type="text" class="form-control" id="totalPayment" name="bill" readonly required="required" />
-					</div>
+    						<div class="form-group">
+        						<label>Total payment</label>
+        						<input type="text" class="form-control" id="totalPayment" name="bill" readonly required="required" />
+        					</div>
 
 						<script>
 						// JavaScript function to calculate total payment
@@ -159,12 +151,7 @@
 				<?php require_once 'user_query/add_query_reserve_resort.php'?>
 			</div>
 		</div>
-	</div>
-	
-	<br />
-	<br />
-	<div style = "text-align:right; margin-right:10px;" class = "navbar navbar-default navbar-fixed-bottom">
-		
+			</div>
 	</div>
 </body>
 </html>

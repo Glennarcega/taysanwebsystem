@@ -39,16 +39,6 @@ require_once 'connection/connect.php';
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				 <!-- header -->
-				
-            
-            <div class = "head-bottom flex">
-           
-
-            </div>
-        </header>
-        <!-- end of header -->
-		  <!-- body content  -->
 
 			<?php
             
@@ -81,47 +71,47 @@ require_once 'connection/connect.php';
 					</thead>
 					<tbody>
                     <?php
-// Retrieve the 'id' parameter from the URL
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0; // Ensure the ID is an integer
-
-
-// Query to get records where the 'id' matches and status is 'Pending'
-$query = $conn->query(
-    "SELECT * FROM `transactionresort` 
-    NATURAL JOIN `guest` 
-    NATURAL JOIN `resort` 
-    WHERE `status` = 'Pending' AND `id` = $id"
-) or die(mysqli_error($conn));
-
-// Check if any rows were returned
-if ($query->num_rows > 0) {
-    while ($fetch = $query->fetch_array()) {
-        ?>
-        <tr>
-            <td><?php echo $fetch['resort_name']; ?></td>
-            <td><strong>
-                <?php 
-                if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {
-                    echo "<label style='color:#0000ff;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
-                } else {
-                    echo "<label style='color:#0000FF;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
-                }
-                ?>
-            </strong></td>
-            <td><?php echo $fetch['status']; ?></td>
-            <td><?php echo $fetch['bill']; ?></td>
-			<td>
-				<a class = "btn btn-success" href="user_query/cancel_query_resort.php?transaction_id=<?php echo $fetch['transaction_id']; ?>&id=<?php echo $fetch['id']; ?>">
-				Cancel</a>                            
-    
-
-        </tr>
-        <?php
-    }
-} else {
-    echo "<tr><td colspan='4'>No records found</td></tr>";
-}
-?>
+                        // Retrieve the 'id' parameter from the URL
+                        $id = isset($_GET['id']) ? intval($_GET['id']) : 0; // Ensure the ID is an integer
+                        
+                        
+                        // Query to get records where the 'id' matches and status is 'Pending'
+                        $query = $conn->query(
+                            "SELECT * FROM `transactionresort` 
+                            NATURAL JOIN `guest` 
+                            NATURAL JOIN `resort` 
+                            WHERE `status` = 'Pending' AND `id` = $id"
+                        ) or die(mysqli_error($conn));
+                        
+                        // Check if any rows were returned
+                        if ($query->num_rows > 0) {
+                            while ($fetch = $query->fetch_array()) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $fetch['resort_name']; ?></td>
+                                    <td><strong>
+                                        <?php 
+                                        if ($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))) {
+                                            echo "<label style='color:#0000ff;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                                        } else {
+                                            echo "<label style='color:#0000FF;'>" . date("M d, Y", strtotime($fetch['checkin'])) . "</label>";
+                                        }
+                                        ?>
+                                    </strong></td>
+                                    <td><?php echo $fetch['status']; ?></td>
+                                    <td><?php echo $fetch['bill']; ?></td>
+                        			<td>
+                        				<a class = "btn btn-success" href="user_query/cancel_query_resort.php?transaction_id=<?php echo $fetch['transaction_id']; ?>&id=<?php echo $fetch['id']; ?>">
+                        				Cancel</a>                            
+                            
+                        
+                                </tr>
+                                <?php
+                            }
+                        } else {
+                            echo "<tr><td colspan='4'>No records found</td></tr>";
+                        }
+                        ?>
 
 					</tbody>
 				</table>
@@ -131,22 +121,22 @@ if ($query->num_rows > 0) {
 	
 	
    
-    </body>
-<script src = "/js/jquery.dataTables.js"></script>
-<script src = "/js/dataTables.bootstrap.js"></script>	
-<script type = "text/javascript">
-	$(document).ready(function(){
-		$("#table").DataTable();
-	});
-</script>
-<script type = "text/javascript">
-	function confirmationDelete(anchor){
-		var conf = confirm("Are you sure you want to delete this record?");
-		if(conf){
-			window.location = anchor.attr("href");
-		}
-	} 
-</script>
+</body>
+    <script src = "/js/jquery.dataTables.js"></script>
+    <script src = "/js/dataTables.bootstrap.js"></script>	
+    <script type = "text/javascript">
+    	$(document).ready(function(){
+    		$("#table").DataTable();
+    	});
+    </script>
+    <script type = "text/javascript">
+    	function confirmationDelete(anchor){
+    		var conf = confirm("Are you sure you want to delete this record?");
+    		if(conf){
+    			window.location = anchor.attr("href");
+    		}
+    	} 
+    </script>
     <script src= "js/script.js"></script>
 
 </html>

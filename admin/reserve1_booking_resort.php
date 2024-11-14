@@ -86,7 +86,7 @@
 						
 							<td><strong><?php if($fetch['checkin'] <= date("Y-m-d", strtotime("+8 HOURS"))){echo "<label style = 'color:#ff0000;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}else{echo "<label style = 'color:#00ff00;'>".date("M d, Y", strtotime($fetch['checkin']))."</label>";}?></strong></td>
 							<td><?php echo $fetch['status']?></td>
-							<td><center><a class = "btn btn-success" href = "../admin_query/checkin_query_reserve_resort.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Checkin</a> <a class = "btn btn-danger" href = "sendtoemail_discard.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Discard</a>
+							<td><center><a class = "btn btn-success" href = "../admin_query/checkin_query_reserve_resort.php?transaction_id=<?php echo $fetch['transaction_id']?>"> Checkin</a> 
 						</tr>
 						<?php
 							}

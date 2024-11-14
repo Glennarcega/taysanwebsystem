@@ -1,9 +1,74 @@
 
 <!DOCTYPE html>
 <?php
-	require_once '../admin_query/validate.php';
-	require '../admin_query/name.php';
+require_once '../admin_query/validate.php';
+require '../admin_query/name.php';
+
+// Assuming $conn is your database connection
+$transactionId = isset($_REQUEST['transaction_id']) ? $_REQUEST['transaction_id'] : null;
+
+// Sanitize and validate the transaction_id
+if ($transactionId) {
+    $transactionId = filter_var($transactionId, FILTER_SANITIZE_NUMBER_INT);
+
+    // Prepare the query to prevent SQL injection (using prepared statements)
+    $stmt = $conn->prepare("SELECT * FROM `transactionresort` NATURAL JOIN `guest` NATURAL JOIN `resort` WHERE `transaction_id` = ?");
+    $stmt->bind_param("i", $transactionId);
+    $stmt->execute();
+    
+    // Fetch the result
+    $result = $stmt->get_result();
+    
+    // Check if a result was returned
+    if ($result->num_rows > 0) {
+        $fetch = $result->fetch_array(MYSQLI_ASSOC);
+    } else {
+        echo "<div class='alert alert-danger'>No data found for the given transaction ID.</div>";
+        exit; // Exit the script if no data found
+    }
+    
+    $stmt->close();
+} else {
+    echo "<div class='alert alert-danger'>Invalid transaction ID.</div>";
+    exit; // Exit the script if transaction_id is not valid
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and validate input
+    $senderEmail = filter_var($_POST['senderEmail'], FILTER_SANITIZE_EMAIL);
+    $receiverEmail = filter_var($_POST['receiverEmail'], FILTER_SANITIZE_EMAIL);
+    $subject = htmlspecialchars(trim($_POST['subject']), ENT_QUOTES, 'UTF-8');
+    $message = htmlspecialchars(trim($_POST['message']), ENT_QUOTES, 'UTF-8');
+
+    // Validate email format
+    if (!filter_var($senderEmail, FILTER_VALIDATE_EMAIL)) {
+        echo "<div class='alert alert-danger'>Invalid sender email address.</div>";
+    } elseif (!filter_var($receiverEmail, FILTER_VALIDATE_EMAIL)) {
+        echo "<div class='alert alert-danger'>Invalid receiver email address.</div>";
+    } else {
+        // Send email
+        $headers = "From: " . $senderEmail . "\r\n";
+        $headers .= "Reply-To: " . $senderEmail . "\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        
+        if (mail($receiverEmail, $subject, $message, $headers)) {
+            // Get the PHP id and transactionid values and pass them as JavaScript variables
+            $id = $fetch['id']; // Assuming $fetch['id'] is available in PHP
+            $transactionid = $fetch['transaction_id']; // Assuming $fetch['transaction_id'] is available in PHP
+
+            // Echo the JavaScript for success
+            echo "<script>
+                    alert('Message sent successfully!');
+                    // Redirect after sending, appending both id and transactionid as query parameters
+                    window.location.href = 'go_discard_resort.php?id=' + " . json_encode($id) . " + '&transactionid=' + " . json_encode($transactionid) . ";
+                  </script>";
+        } else {
+            echo "<div class='alert alert-danger'>Failed to send email.</div>";
+        }
+    }
+}
 ?>
+
 <html lang = "en">
 	<head>
 	<title>Tinindag Festivals</title>
@@ -93,39 +158,48 @@
 		<hr style="border-top:1px dotted #ccc;"/>
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-			<form method="POST" action="send_email_discard.php">
-				<div class="form-group">
-					<label>Email:</label>
-					<input type = "text" value = "<?php echo $fetch['email']?>" class = "form-control" size = "40" disabled = "disabled"/>
-				</div>
-				<div class="form-group">
-					<label>Subject</label>
-					<input type="text" class="form-control" name="subject" required="required" value="Dicard Request Booking" disabled = "disabled"/>
-				</div>
+		    
+	 <form method="POST" id="sendEmailForm">
+                    <!-- Sender Email (User inputs this) -->
+                    <div class="form-group">
+                        <label>Sender Email:</label>
+                    <input type="email" class="form-control" name="senderEmail" value="taysanonlinebooking@gmail.com" required="required" readonly/>
+                    </div>
 
-				<textarea class="form-control" name="message" required="required" rows="8" cols="50"><?php 
-					echo "Dear Customer,\n\n";
-					echo "We regret to inform you that your reservation has been successfully canceled. Below are the details of your canceled booking:\n\n";
-					echo "Name: " . $fetch['name'] . "\n";
-					echo "Hotel Name: " . $fetch['hotel_name'] . "\n";
-					echo "Room Type: " . $fetch['room_type'] . "\n";
-					echo "Reserved Date: " . $fetch['checkin'] . "\n";
-					echo "Number of Days: " . $fetch['days'] . "\n";
-					echo "Total Bill: " . $fetch['bill'] . "\n\n";
-					echo "We understand that plans can change, and we hope to welcome you on another occasion. If you have any further questions or need assistance, please do not hesitate to contact us.\n\n";
-					
-					echo "Once again, we sincerely apologize for any inconvenience caused. Should you need to make another reservation in the future, we would be more than happy to assist you.\n\n";
-					
-					echo "Best regards,\n";
-					echo "Your Hotel Name\n";
-					echo "Hotel Address\n";
-					echo "Hotel Contact Information\n";
-				?>
-				</textarea>
+                    <!-- Receiver Email (Pre-filled from PHP, fetched from database) -->
+                    <div class="form-group">
+                        <label>Receiver Email:</label>
+                        <input type="email" class="form-control" name="receiverEmail" value="<?php echo htmlspecialchars($fetch['email']); ?>" required="required" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" class="form-control" name="subject" required="required" value="Discard Request Booking" disabled="disabled"/>
+                    </div>
 
-<br>
-				<center><button name="send" href = "confirm_reserve.php?transaction_id=<?php echo $fetch['transaction_id']?>"class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Send</button></center>
-			</form>
+    <textarea class="form-control" name="message" required="required" rows="8" cols="50">
+        <?php 
+            echo "Dear Customer,\n\n";
+            echo "We regret to inform you that your reservation has been successfully canceled. Below are the details of your canceled booking:\n\n";
+            echo "Name: " . $fetch['name'] . "\n";
+            echo "Hotel Name: " . $fetch['hotel_name'] . "\n";
+            echo "Room Type: " . $fetch['room_type'] . "\n";
+            echo "Reserved Date: " . $fetch['checkin'] . "\n";
+            echo "Number of Days: " . $fetch['days'] . "\n";
+            echo "Total Bill: " . $fetch['bill'] . "\n\n";
+            echo "We understand that plans can change, and we hope to welcome you on another occasion. If you have any further questions or need assistance, please do not hesitate to contact us.\n\n";
+            echo "Once again, we sincerely apologize for any inconvenience caused. Should you need to make another reservation in the future, we would be more than happy to assist you.\n\n";
+            echo "Best regards,\n";
+            echo "Your Hotel Name\n";
+            echo "Hotel Address\n";
+            echo "Hotel Contact Information\n";
+        ?>
+    </textarea>
+
+    <br><center>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Send</button>
+    </center>
+</form>
+
 			<br />
 			<?php
 				if(ISSET($_SESSION['status'])){
@@ -145,6 +219,7 @@
 			?>
 		</div>
 	</div>
+
 
 	</div>
 	

@@ -7,7 +7,8 @@ $email = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'casas_transient_house_db');
+$db = mysqli_connect('localhost', 'root', '', 'taysan_online_booking_db');
+
 if (!$db) {
     die("Database connection failed: " . mysqli_connect_error());
 }

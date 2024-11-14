@@ -20,9 +20,6 @@ if (isset($_POST['add_guest'])) {
     // Check for valid check-in date
     if ($checkin < date("Y-m-d", strtotime('+8 HOURS'))) {    
         echo "<script>alert('Check-in date must be a present or future date')</script>";
-    } elseif ($row > 0) {
-        // If date is already booked, show an alert and stop the process
-        echo "<script>alert('This date is already booked for the selected resort. Please choose another date.')</script>";
     } else {
         // Insert guest information
         $conn->query("INSERT INTO `guest` (name, address, contactno, email) VALUES('$name', '$address', '$contactno', '$email')") or die(mysqli_error($conn));

@@ -233,6 +233,7 @@ header > * {
 
         </div>
                 <!-- end of single service -->
+                
             </div>
         </section>
 
@@ -244,7 +245,7 @@ header > * {
         <section class = "location" id = "location">
             <div class = "sec-width">
                 <div class = "title">
-                    <h2>Abouit Us</h2>
+                    <h2>About Us</h2>
                 </div>
                 
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; max-width: 1200px; margin: auto; padding: 20px;">
@@ -284,7 +285,7 @@ header > * {
         onmouseout="this.style.transform='scale(1)';">
     
     <!-- Text Section -->
-    <div style="padding: 20px; text-align: center;">
+    <div style="padding: 10px; text-align: center;">
         <h3 style="font-size: 1.5rem; margin-bottom: 10px; font-weight: bold; color: black;">Barangays</h3>
         <ul style="list-style-type: none; padding: 0; text-align: left; font-family: 'Lora', serif;">
             
@@ -299,13 +300,13 @@ header > * {
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Bukal</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Bacao</p>
         </div>
 
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Dagatan</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Bukal</p>
         </div>
 
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
@@ -317,7 +318,7 @@ header > * {
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Laurel</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Dagatan</p>
         </div>
 
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
@@ -329,7 +330,7 @@ header > * {
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Mapulo</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Laurel</p>
         </div>
 
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
@@ -341,45 +342,75 @@ header > * {
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Mahanadiong</p>
+        </div>
+
+        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+             onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+             onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Mapulo</p>
+        </div>
+
+        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+             onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+             onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Mataas na Lupa</p>
+        </div>
+
+
+        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+             onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+             onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
             <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Panghayaan</p>
         </div>
 
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">San Juan</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Pinagbayanan</p>
         </div>
 
         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+             onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+             onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Piña</p>
+        </div>
+        
+         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+             onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+             onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Poblacion East</p>
+        </div>
+        
+         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+             onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
+             onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Poblacion West</p>
+        </div>
+        
+         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
             <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">San Isidro</p>
         </div>
-
-        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+        
+         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">San Rafael</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">San Marcelino</p>
         </div>
-
-        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+        
+         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Santo Niño</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Sto niño</p>
         </div>
-
-        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
+        
+         <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
              onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
              onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Talaan</p>
+            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Tilambo</p>
         </div>
-
-        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; transition: all 0.3s ease;"
-             onmouseover="this.style.boxShadow='0 6px 6px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.05)';"
-             onmouseout="this.style.boxShadow='0 3px 3px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1)';">
-            <p style="font-size: 1rem; font-weight: bold; color: #333; margin: 0;">Tayuman</p>
-        </div>
-
     </div>
             
         </ul>

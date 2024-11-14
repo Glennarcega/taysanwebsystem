@@ -49,7 +49,7 @@
 						<tr>
 							<th>Name</th>
 							<th>Username</th>
-							<th>Password</th>
+							
 						
 						</tr>
 					</thead>
@@ -61,7 +61,7 @@
 						<tr>
 							<td><?php echo $fetch['username']?></td>
 							<td><?php echo $fetch['email']?></td>
-							<td><?php echo md5($fetch['password'])?></td>
+							
 						
 						</tr>
 						<?php

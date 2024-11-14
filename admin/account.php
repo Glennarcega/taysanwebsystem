@@ -50,7 +50,6 @@
 						<tr>
 							<th>Name</th>
 							<th>Username</th>
-							<th>Password</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -62,7 +61,6 @@
 						<tr>
 							<td><?php echo $fetch['name']?></td>
 							<td><?php echo $fetch['username']?></td>
-							<td><?php echo md5($fetch['password'])?></td>
 							<td><center><a class = "btn btn-warning" href = "edit_account.php?admin_id=<?php echo $fetch['admin_id']?>"> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "../admin_query/delete_account.php?admin_id=<?php echo $fetch['admin_id']?>"> Delete</a></center></td>
 						</tr>
 						<?php

@@ -51,7 +51,7 @@
                 onmouseover="this.style.transform='scale(1.1)';" 
                 onmouseout="this.style.transform='scale(1)';">
             <div style="padding: 15px; text-align: center;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: black;">RESORT</h3>
+                <h3 style="font-size: 2.2rem; margin-bottom: 10px; font-weight: bold; color: black;">RESORT</h3>
                 <p style="font-size: 1.5rem; color: #555; margin-bottom: 15px;">This is a short description of the product. It gives users an overview of the product features and benefits.</p>
                 <button onclick="window.location.href='resort.php'" style="border: none; background-color: #f0f0f0; padding: 10px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"
                         onmouseover="this.style.backgroundColor='#ddd'; this.style.transform='scale(1.1)';" 
